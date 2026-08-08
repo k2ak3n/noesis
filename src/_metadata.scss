@@ -1,0 +1,196 @@
+/* Properties, tags, search, and note navigation results */
+body.noesis-properties-list {
+  .metadata-container {
+    margin-block: 0.75rem 0.9rem;
+    padding: 0.36rem 0.5rem 0.45rem;
+    border: 1px solid color-mix(in srgb, var(--background-modifier-border) 72%, transparent);
+    border-radius: var(--radius-l);
+    background: transparent;
+  }
+
+  .metadata-container:is(.is-collapsed, :has(:is(.metadata-properties-heading, .metadata-properties-title).is-collapsed)) {
+    margin-block: 0.5rem 0.65rem;
+    padding: 0;
+    border-color: transparent;
+    background: transparent;
+  }
+
+  .metadata-properties {
+    gap: 0;
+  }
+
+  .metadata-container :is(.metadata-properties-heading, .metadata-properties-title) {
+    display: flex;
+    align-items: center;
+    min-height: 2rem;
+    margin: 0;
+    padding: 0.12rem 0.1rem 0.34rem;
+    color: var(--text-normal);
+    font-size: 0.92em;
+    font-weight: 650;
+  }
+
+  .metadata-property {
+    min-height: 2.15rem;
+    padding: 0.1rem 0.25rem;
+    border-width: 1px 0 0;
+    border-style: solid;
+    border-color: color-mix(in srgb, var(--background-modifier-border) 58%, transparent);
+    border-radius: 0;
+    background: transparent;
+    transition: background-color var(--noesis-transition-fast);
+  }
+
+  .metadata-property:hover,
+  .metadata-property:focus-within {
+    background: color-mix(in srgb, var(--noesis-current-accent) 7%, transparent);
+  }
+
+  :is(.metadata-property-key, .metadata-property-key-input, .metadata-property-icon) {
+    color: var(--text-muted);
+  }
+
+  .metadata-property-key {
+    flex: 0 0 8.25rem;
+    min-width: 0;
+  }
+
+  .metadata-property-key :is(input, [contenteditable=true]),
+  .metadata-property-key-input {
+    width: 100%;
+    min-height: 1.7rem;
+    padding: 0.18rem 0.28rem !important;
+    border: 0 !important;
+    border-radius: var(--radius-s) !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: var(--text-muted) !important;
+    font-size: 0.88em;
+    font-weight: 600;
+  }
+
+  .metadata-property-key :is(input, [contenteditable=true]):hover,
+  .metadata-property-key-input:hover {
+    background: color-mix(in srgb, var(--background-modifier-hover) 72%, transparent) !important;
+  }
+
+  .metadata-property-key :is(input, [contenteditable=true]):focus,
+  .metadata-property-key-input:focus {
+    background: color-mix(in srgb, var(--noesis-current-accent) 8%, transparent) !important;
+    box-shadow: inset 0 -1px 0 var(--noesis-current-accent) !important;
+  }
+
+  .metadata-property-value {
+    min-width: 0;
+    padding-inline: 0.55rem 0.25rem;
+    color: var(--text-normal);
+  }
+
+  .metadata-property-value .mod-empty {
+    color: var(--text-faint);
+  }
+
+  :is(.metadata-add-button, .metadata-property-warning-icon) {
+    border-radius: var(--radius-m);
+  }
+
+  .metadata-add-button {
+    margin: 0.32rem 0.16rem 0;
+    padding: 0.28rem 0.35rem;
+    color: var(--text-muted);
+    font-size: 0.88em;
+  }
+
+  .metadata-add-button:hover {
+    background: color-mix(in srgb, var(--noesis-current-accent) 8%, transparent);
+    color: var(--noesis-current-accent);
+  }
+}
+
+:is(.tag, .cm-hashtag, .metadata-property .multi-select-pill) {
+  border: 1px solid color-mix(in srgb, var(--noesis-current-accent) 24%, transparent);
+  border-radius: var(--radius-s);
+  background: color-mix(in srgb, var(--noesis-current-accent) 10%, transparent);
+  color: color-mix(in srgb, var(--noesis-current-accent) 76%, var(--text-normal));
+  transition: background-color var(--noesis-transition-fast), border-color var(--noesis-transition-fast), color var(--noesis-transition-fast);
+}
+
+:is(.tag, .cm-hashtag) {
+  padding: 0.05em 0.55em;
+  font-size: 0.9em;
+}
+
+:is(.tag, .cm-hashtag):is(:hover, :focus-visible),
+.metadata-property .multi-select-pill:hover {
+  border-color: color-mix(in srgb, var(--noesis-current-accent) 42%, var(--background-modifier-border));
+  background: color-mix(in srgb, var(--noesis-current-accent) 16%, transparent);
+  color: var(--text-normal);
+}
+
+body.noesis-properties-list .metadata-property .multi-select-pill {
+  border-color: color-mix(in srgb, var(--noesis-current-accent) 18%, var(--background-modifier-border));
+  background: color-mix(in srgb, var(--noesis-current-accent) 6%, transparent);
+  color: color-mix(in srgb, var(--noesis-current-accent) 64%, var(--text-normal));
+  font-size: 0.86em;
+  padding: 0.06em 0.46em;
+}
+
+:is(.search-result-file-title, .backlink-pane .search-result-file-title, .outgoing-link-pane .tree-item-self) {
+  border-radius: var(--radius-m);
+  color: var(--text-normal);
+  font-weight: 620;
+}
+
+:is(.search-result-file-title, .backlink-pane .search-result-file-title, .outgoing-link-pane .tree-item-self):is(:hover, :focus-visible) {
+  background: var(--background-modifier-hover);
+}
+
+.workspace-leaf-content[data-type=outline] .tree-item-self {
+  border-radius: var(--radius-m);
+  color: var(--text-normal);
+}
+
+.workspace-leaf-content[data-type=outline] .tree-item-self:is(:hover, :focus-visible) {
+  background: var(--background-modifier-hover);
+  color: var(--nav-item-color-hover, var(--noesis-current-accent));
+}
+
+.workspace-leaf-content[data-type=outline] .tree-item-self:is(.is-active, .is-selected, .mod-active, .mod-selected, [aria-selected=true]),
+.workspace-leaf-content[data-type=outline] .tree-item:is(.is-active, .is-selected, .mod-active, .mod-selected, [aria-selected=true]) > .tree-item-self {
+  background: var(--noesis-sidebar-active-bg) !important;
+  color: var(--text-normal) !important;
+}
+
+:is(.search-result-file-match, .backlink-pane .search-result-file-match) {
+  margin-block: 0.45rem;
+  padding: 0.48rem 0.65rem;
+  border: 1px solid color-mix(in srgb, var(--background-modifier-border) 82%, transparent);
+  border-left: 3px solid color-mix(in srgb, var(--noesis-current-accent) 48%, var(--background-modifier-border));
+  border-radius: var(--radius-m);
+  background: color-mix(in srgb, var(--background-secondary) 46%, transparent);
+}
+
+body.noesis-search-matches-accent :is(.search-result-file-matched-text, .suggestion-highlight, .cm-searchMatch) {
+  border-radius: var(--radius-s);
+  background: color-mix(in srgb, var(--noesis-current-accent) 18%, transparent);
+  color: var(--noesis-current-accent);
+}
+
+:is(.search-result-file-matches, .backlink-pane .search-result-file-matches, .outgoing-link-pane .tree-item-children) {
+  border-left-color: color-mix(in srgb, var(--noesis-current-accent) 24%, var(--background-modifier-border));
+}
+
+:is(.backlink-pane, .outgoing-link-pane) .tree-item-flair {
+  border: 1px solid color-mix(in srgb, var(--noesis-current-accent) 22%, transparent);
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--noesis-current-accent) 10%, transparent);
+  color: var(--text-muted);
+  transition: background-color var(--noesis-transition-fast), border-color var(--noesis-transition-fast), color var(--noesis-transition-fast);
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--noesis-current-accent) 42%, var(--background-modifier-border));
+    background: color-mix(in srgb, var(--noesis-current-accent) 16%, transparent);
+    color: var(--text-normal);
+  }
+}
+

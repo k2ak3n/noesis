@@ -1,0 +1,187 @@
+/* Print and PDF export */
+$include-htb: false !default;
+
+@media print {
+  body {
+    --noesis-print-font-size: 11pt;
+    --noesis-print-code-size: 9.2pt;
+    --noesis-print-line-height: 1.5;
+    --noesis-print-block-gap: 0.62rem;
+    --noesis-print-heading-before: 0.95rem;
+    --noesis-print-heading-after: 0.42rem;
+    --noesis-print-title-size: 1.85rem;
+    --noesis-print-callout-padding-y: 0.68rem;
+    --noesis-print-callout-padding-x: 0.82rem;
+    --noesis-print-title-color: #111827;
+    --noesis-print-heading-h1-color: #111827;
+    --noesis-print-heading-h2-color: #111827;
+    --noesis-print-heading-h3-color: #111827;
+    --noesis-print-heading-h4-color: #111827;
+    --noesis-print-heading-h5-color: #111827;
+    --noesis-print-heading-h6-color: #111827;
+    --background-primary: #ffffff;
+    --background-secondary: #ffffff;
+    --background-modifier-border: #d8dde6;
+    --text-normal: #111827;
+    --text-muted: #4b5563;
+    --text-faint: #6b7280;
+    --noesis-bg-elevated: #ffffff;
+    --noesis-current-accent: #365f46;
+    color: var(--text-normal) !important;
+    background: #ffffff !important;
+  }
+
+  body.noesis-print-readable {
+    --noesis-print-mode: readable;
+  }
+
+  body.noesis-print-compact {
+    --noesis-print-mode: compact;
+    --noesis-print-font-size: 10pt;
+    --noesis-print-code-size: 8.6pt;
+    --noesis-print-line-height: 1.42;
+    --noesis-print-block-gap: 0.42rem;
+    --noesis-print-heading-before: 0.7rem;
+    --noesis-print-heading-after: 0.28rem;
+    --noesis-print-title-size: 1.55rem;
+    --noesis-print-callout-padding-y: 0.5rem;
+    --noesis-print-callout-padding-x: 0.68rem;
+  }
+
+  body.noesis-print-heading-colors {
+    --noesis-print-title-color: var(--noesis-note-title-color, var(--noesis-heading-h1-final));
+    --noesis-print-heading-h1-color: var(--noesis-heading-h1-final);
+    --noesis-print-heading-h2-color: var(--noesis-heading-h2-final);
+    --noesis-print-heading-h3-color: var(--noesis-heading-h3-final);
+    --noesis-print-heading-h4-color: var(--noesis-heading-h4-final);
+    --noesis-print-heading-h5-color: var(--noesis-heading-h5-final);
+    --noesis-print-heading-h6-color: var(--noesis-heading-h6-final);
+  }
+
+  :is(.workspace-ribbon, .status-bar, .titlebar, .view-header, .workspace-tab-header-container, .mod-sidedock) {
+    display: none !important;
+  }
+
+  :is(.workspace, .workspace-split, .workspace-tabs, .workspace-leaf, .workspace-leaf-content, .view-content, .markdown-preview-view) {
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+  }
+
+  .markdown-preview-sizer,
+  .markdown-rendered {
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: var(--text-normal) !important;
+    font-size: var(--noesis-print-font-size);
+    line-height: var(--noesis-print-line-height);
+  }
+
+  .inline-title {
+    margin-bottom: 1rem;
+    color: var(--noesis-print-title-color) !important;
+    font-size: var(--noesis-print-title-size);
+    break-after: avoid;
+  }
+
+  .markdown-rendered :is(h1, h2, h3, h4, h5, h6) {
+    margin-block: var(--noesis-print-heading-before) var(--noesis-print-heading-after);
+    break-after: avoid;
+  }
+
+  .markdown-rendered h1 {
+    color: var(--noesis-print-heading-h1-color);
+  }
+
+  .markdown-rendered h2 {
+    color: var(--noesis-print-heading-h2-color);
+  }
+
+  .markdown-rendered h3 {
+    color: var(--noesis-print-heading-h3-color);
+  }
+
+  .markdown-rendered h4 {
+    color: var(--noesis-print-heading-h4-color);
+  }
+
+  .markdown-rendered h5 {
+    color: var(--noesis-print-heading-h5-color);
+  }
+
+  .markdown-rendered h6 {
+    color: var(--noesis-print-heading-h6-color);
+  }
+
+  .markdown-rendered :is(p, ul, ol, blockquote, pre, table, .callout) {
+    margin-block: var(--noesis-print-block-gap);
+  }
+
+  @page {
+    margin: 20mm;
+  }
+
+  .markdown-rendered :is(pre, blockquote, table, .callout) {
+    break-inside: avoid;
+  }
+
+  .markdown-rendered :is(p, li) {
+    orphans: 3;
+    widows: 3;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr {
+    break-inside: avoid;
+  }
+
+  .markdown-rendered a {
+    color: #1f5f86 !important;
+    text-decoration: underline;
+  }
+
+  body.noesis-print-link-urls .markdown-rendered a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    color: var(--text-muted);
+    font-size: 0.84em;
+    overflow-wrap: anywhere;
+  }
+
+  .markdown-rendered pre,
+  body.noesis-codebox-on .markdown-rendered pre,
+  body.noesis-codebox-on .markdown-rendered pre code {
+    border-color: #d8dde6 !important;
+    background: #f6f8fb !important;
+    color: #111827 !important;
+  }
+
+  .markdown-rendered pre code,
+  body.noesis-codebox-on .markdown-rendered pre code {
+    font-size: var(--noesis-print-code-size);
+  }
+
+  @if $include-htb {
+  body.noesis-callouts-on .callout {
+    padding: var(--noesis-print-callout-padding-y) var(--noesis-print-callout-padding-x);
+    border-color: #d8dde6 !important;
+    border-left-color: var(--callout-color) !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+  }
+  }
+
+  .tag {
+    border-color: #d8dde6;
+    background: #ffffff;
+    color: #374151;
+  }
+}

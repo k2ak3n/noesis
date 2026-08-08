@@ -1,0 +1,21 @@
+// noesis: the full theme, including technical callouts, palettes, and chrome.
+@use 'variables' with (
+  $include-htb: true
+);
+@use 'density';
+@use 'workspace-chrome' with (
+  $include-htb: true
+);
+@use 'sidebar';
+@use 'editor' with (
+  $include-htb: true
+);
+@use 'metadata';
+@use 'tasks';
+@use 'reading-modes';
+@use 'callouts';
+@use 'technical-callout-types';
+@use 'settings-views';
+@use 'print' with (
+  $include-htb: true
+);

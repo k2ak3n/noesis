@@ -1,0 +1,134 @@
+/* Style Settings view */
+body .workspace-leaf-content[data-type=style-settings] .view-content {
+  --noesis-style-settings-indent: 1rem;
+  --noesis-style-settings-indent-wide: 1.35rem;
+}
+
+body .workspace-leaf-content[data-type=style-settings] :is(.setting-item[data-id=workspace-category],
+.setting-item[data-id=visual-system-category],
+.setting-item[data-id=layout-category],
+.setting-item[data-id=components-category],
+[data-id=workspace-category].setting-item,
+[data-id=visual-system-category].setting-item,
+[data-id=layout-category].setting-item,
+[data-id=components-category].setting-item,
+.setting-item-heading[data-level="1"],
+.style-settings-heading[data-level="1"]) {
+  margin: 1rem 0 0.4rem;
+  padding: 0.55rem 0.7rem 0.55rem 0.8rem;
+  border: 1px solid color-mix(in srgb, var(--background-modifier-border) 78%, transparent);
+  border-left: 3px solid color-mix(in srgb, var(--noesis-current-accent) 52%, var(--background-modifier-border));
+  border-radius: var(--radius-m);
+  background: color-mix(in srgb, var(--background-secondary) 58%, transparent);
+}
+
+body .workspace-leaf-content[data-type=style-settings] :is(.setting-item[data-id^=noesis-]:not([data-id=noesis-settings]),
+[data-id^=noesis-].setting-item:not([data-id=noesis-settings])) {
+  margin-left: var(--noesis-style-settings-indent);
+  width: calc(100% - var(--noesis-style-settings-indent));
+  box-sizing: border-box;
+}
+
+body .workspace-leaf-content[data-type=style-settings] :is(.setting-item[data-id$=-subcategory],
+[data-id$=-subcategory].setting-item,
+.setting-item-heading[data-level="2"],
+.style-settings-heading[data-level="2"]) {
+  margin-top: 0.35rem;
+  margin-left: var(--noesis-style-settings-indent-wide);
+  width: calc(100% - var(--noesis-style-settings-indent-wide));
+  padding-left: 0.85rem;
+  border-left: 2px solid color-mix(in srgb, var(--noesis-current-accent) 34%, var(--background-modifier-border));
+  border-radius: var(--radius-s);
+  background: color-mix(in srgb, var(--noesis-current-accent) 4%, transparent);
+}
+
+body .workspace-leaf-content[data-type=style-settings] :is(.setting-item-heading,
+.style-settings-heading,
+.setting-item[data-id$=-category],
+.setting-item[data-id$=-subcategory]) .setting-item-name {
+  font-weight: 700;
+}
+
+body .workspace-leaf-content[data-type=style-settings] :is(.setting-item[data-id^=noesis-]:not([data-id$=-subcategory]):not([data-id=noesis-settings]),
+[data-id^=noesis-].setting-item:not([data-id$=-subcategory]):not([data-id=noesis-settings])) {
+  border-radius: var(--radius-m);
+}
+
+@media (max-width: 700px) {
+  body .workspace-leaf-content[data-type=style-settings] .view-content {
+    --noesis-style-settings-indent: 0.65rem;
+    --noesis-style-settings-indent-wide: 0.85rem;
+  }
+}
+/* Graph and Canvas */
+body.noesis-graph-on .workspace-leaf-content[data-type=graph] .view-content,
+body.noesis-graph-on .workspace-leaf-content[data-type=localgraph] .view-content {
+  background: var(--background-primary);
+}
+
+body.noesis-graph-on .graph-view.color-fill,
+body.noesis-graph-on .graph-view.color-fill-focused {
+  color: var(--noesis-current-accent);
+}
+
+body.noesis-graph-on .graph-view.color-line {
+  color: color-mix(in srgb, var(--noesis-current-accent) 42%, var(--text-muted));
+}
+
+body.noesis-graph-on .graph-view.color-fill-tag {
+  color: #d8b85f;
+}
+
+body.noesis-graph-on .graph-view.color-fill-attachment {
+  color: #8da2b8;
+}
+
+body.noesis-graph-on .graph-view.color-fill-unresolved {
+  color: #cc6677;
+}
+
+body.noesis-graph-on .graph-controls {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-l);
+  background: var(--noesis-bg-elevated);
+}
+
+body.noesis-canvas-on .canvas-wrapper,
+body.noesis-canvas-on .canvas-background {
+  background: var(--canvas-background);
+}
+
+body.noesis-canvas-on .canvas-node-container {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-l);
+  background: var(--noesis-bg-elevated);
+  box-shadow: none;
+}
+
+body.noesis-canvas-on .canvas-node.is-focused .canvas-node-container,
+body.noesis-canvas-on .canvas-node.is-selected .canvas-node-container {
+  border-color: color-mix(in srgb, var(--noesis-current-accent) 58%, var(--background-modifier-border));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--noesis-current-accent) 18%, transparent);
+}
+
+body.noesis-canvas-on .canvas-group {
+  border-color: color-mix(in srgb, var(--noesis-current-accent) 35%, var(--background-modifier-border));
+  background: color-mix(in srgb, var(--noesis-current-accent) 7%, transparent);
+}
+
+body.noesis-canvas-on .canvas-control-group,
+body.noesis-canvas-on .canvas-menu {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-l);
+  background: var(--noesis-bg-elevated);
+}
+
+body.noesis-canvas-on .canvas-path {
+  stroke: color-mix(in srgb, var(--noesis-current-accent) 72%, var(--text-muted));
+}
+
+@media (max-width: 700px) {
+  body {
+    --noesis-content-width: 100%;
+  }
+}

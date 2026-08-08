@@ -1,0 +1,137 @@
+/* Technical callout vocabulary included with noesis. */
+.callout[data-callout=decision] { --callout-color: rgb(124, 58, 237); --callout-icon: lucide-scale; }
+.callout[data-callout=definition] { --callout-color: rgb(37, 99, 235); --callout-icon: lucide-book-open; }
+.callout[data-callout=artifact] { --callout-color: rgb(100, 116, 139); --callout-icon: lucide-package; }
+.callout[data-callout=scope] { --callout-color: rgb(99, 102, 241); --callout-icon: lucide-clipboard-check; }
+.callout[data-callout=recon] { --callout-color: rgb(14, 165, 233); --callout-icon: lucide-search; }
+.callout[data-callout=target] { --callout-color: rgb(6, 182, 212); --callout-icon: lucide-crosshair; }
+.callout[data-callout=attack-path] { --callout-color: rgb(168, 85, 247); --callout-icon: lucide-route; }
+.callout[data-callout=finding] { --callout-color: rgb(245, 158, 11); --callout-icon: lucide-file-search; }
+.callout[data-callout=vulnerability] { --callout-color: rgb(249, 115, 22); --callout-icon: lucide-shield-alert; }
+.callout[data-callout=exploit] { --callout-color: rgb(239, 68, 68); --callout-icon: lucide-terminal; }
+.callout[data-callout=credential] { --callout-color: rgb(220, 38, 38); --callout-icon: lucide-key; }
+.callout[data-callout=remediation] { --callout-color: rgb(34, 197, 94); --callout-icon: lucide-wrench; }
+.callout[data-callout=report] { --callout-color: rgb(59, 130, 246); --callout-icon: lucide-file-text; }
+.callout[data-callout=network] { --callout-color: rgb(14, 165, 233); --callout-icon: lucide-network; }
+.callout[data-callout=maintenance] { --callout-color: rgb(245, 158, 11); --callout-icon: lucide-wrench; }
+.callout[data-callout=rollback] { --callout-color: rgb(249, 115, 22); --callout-icon: lucide-rotate-ccw; }
+.callout[data-callout=security] { --callout-color: rgb(5, 150, 105); --callout-icon: lucide-shield-check; }
+.callout[data-callout=automation] { --callout-color: rgb(217, 70, 239); --callout-icon: lucide-bot; }
+
+/* Timeline and attack-chain layouts. */
+.callout[data-callout=timeline] { --callout-color: rgb(82, 162, 208); --callout-icon: lucide-clock; }
+.callout[data-callout=attackchain] { --callout-color: rgb(220, 76, 70); --callout-icon: lucide-link; }
+/* Advanced layouts are part of the enabled noesis callout treatment. */
+body.noesis-callouts-on {
+.callout[data-callout=timeline] {
+  --noesis-timeline-gutter: 3.1rem;
+  --noesis-timeline-line: color-mix(in srgb, var(--callout-color) 42%, var(--background-modifier-border));
+}
+.callout[data-callout=timeline] .callout-content,
+.callout[data-callout=attackchain] .callout-content {
+  position: relative;
+}
+.callout[data-callout=timeline] .callout-content {
+  padding-block: 0.8rem;
+}
+.callout[data-callout=timeline] .callout-content::before,
+.callout[data-callout=attackchain] .callout-content::before {
+  content: "";
+  position: absolute;
+  width: 1px;
+}
+.callout[data-callout=timeline] .callout-content::before {
+  inset-block: 1.15rem;
+  left: 1.25rem;
+  background: linear-gradient(to bottom, transparent, var(--noesis-timeline-line) 1rem, var(--noesis-timeline-line) calc(100% - 1rem), transparent);
+}
+.callout[data-callout=timeline] .callout-content > :is(h1, h2, h3, p, ul, ol, blockquote),
+.callout[data-callout=attackchain] .callout-content > :is(h1, h2, h3, h4, p, ul, ol, blockquote, pre) {
+  position: relative;
+}
+.callout[data-callout=timeline] .callout-content > :is(h1, h2, h3, p, ul, ol, blockquote) {
+  margin-left: var(--noesis-timeline-gutter);
+}
+.callout[data-callout=timeline] .callout-content > h1,
+.callout[data-callout=attackchain] .callout-content > h1 {
+  color: var(--text-muted) !important;
+  font-size: 0.86em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.callout[data-callout=timeline] .callout-content > h1 { margin-block: 1.15rem 0.65rem; }
+.callout[data-callout=timeline] .callout-content > h2,
+.callout[data-callout=attackchain] .callout-content > h2 {
+  display: inline-flex;
+  padding: 0.18rem 0.58rem;
+  border: 1px solid color-mix(in srgb, var(--callout-color) 42%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--callout-color) 10%, transparent);
+  color: var(--text-normal);
+  font-size: 0.92em;
+}
+.callout[data-callout=timeline] .callout-content > h2 { margin-block: 0.75rem 0.25rem; }
+.callout[data-callout=timeline] .callout-content > h3,
+.callout[data-callout=attackchain] .callout-content > h3 { color: var(--text-normal); }
+.callout[data-callout=timeline] .callout-content > h3 { margin-top: 0.7rem; }
+.callout[data-callout=timeline] .callout-content > h3::before {
+  content: "";
+  position: absolute;
+  left: -2.17rem;
+  top: 0.35em;
+  width: 0.62rem;
+  height: 0.62rem;
+  border: 2px solid var(--callout-color);
+  border-radius: 999px;
+  background: var(--background-primary);
+}
+
+.callout[data-callout=attackchain] {
+  --noesis-attackchain-gutter: 3.25rem;
+  --noesis-attackchain-line: color-mix(in srgb, var(--callout-color) 38%, var(--background-modifier-border));
+}
+.callout[data-callout=attackchain] .callout-content {
+  padding-block: 0.85rem;
+  counter-reset: attack-step;
+}
+.callout[data-callout=attackchain] .callout-content::before {
+  inset-block: 1.1rem;
+  left: 1.28rem;
+  background: linear-gradient(to bottom, transparent, var(--noesis-attackchain-line) 1rem, var(--noesis-attackchain-line) calc(100% - 1rem), transparent);
+}
+.callout[data-callout=attackchain] .callout-content > :is(h1, h2, h3, h4, p, ul, ol, blockquote, pre) {
+  margin-left: var(--noesis-attackchain-gutter);
+}
+.callout[data-callout=attackchain] .callout-content > h3 { counter-increment: attack-step; }
+.callout[data-callout=attackchain] .callout-content > h3::before {
+  content: counter(attack-step);
+  position: absolute;
+  left: -2.72rem;
+  top: -0.08rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.45rem;
+  height: 1.45rem;
+  border: 1px solid var(--callout-color);
+  border-radius: 999px;
+  background: var(--background-primary);
+  color: var(--callout-color);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+.callout[data-callout=attackchain] .callout-content > h4 {
+  display: inline-flex;
+  padding: 0.12rem 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--text-muted) 30%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--background-primary) 78%, transparent);
+  color: var(--text-muted);
+  font-size: 0.82em;
+}
+
+@media (max-width: 700px) {
+  .callout[data-callout=timeline] { --noesis-timeline-gutter: 2.25rem; }
+  .callout[data-callout=attackchain] { --noesis-attackchain-gutter: 2.4rem; }
+}
+}

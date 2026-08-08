@@ -1,0 +1,39 @@
+{
+  "name": "noesis",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "description": "noesis is a clean, cohesive Obsidian theme for technical notes, research, task lists, Codeboxes, callouts, and long-form writing.",
+  "scripts": {
+    "test": "npm run build && npm run audit:artifact && npm run audit:settings && npm run audit:a11y:strict && npm run audit:selectors:strict && npm run audit:release-assets && npm run test:tools",
+    "build": "node build.js",
+    "audit:artifact": "node tools/artifact-contract.js",
+    "audit:settings": "node tools/style-settings-contract.js",
+    "audit:presets": "npm run audit:settings",
+    "audit:a11y": "node tools/accessibility-audit.js",
+    "audit:a11y:strict": "node tools/accessibility-audit.js --strict",
+    "audit:selectors": "node tools/selector-complexity.js",
+    "audit:selectors:strict": "node tools/selector-complexity.js --strict",
+    "audit:release-assets": "node tools/release-asset-contract.js",
+    "test:tools": "node tools/release-asset-contract.test.js",
+    "dev": "chokidar \"src/**/*.scss\" \"src/**/*.yml\" -c \"npm run build\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/k2ak3n/noesis-dev.git"
+  },
+  "keywords": [],
+  "author": "k2ak3n",
+  "license": "MIT",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/k2ak3n/noesis-dev/issues"
+  },
+  "homepage": "https://github.com/k2ak3n/noesis-dev#readme",
+  "devDependencies": {
+    "chokidar-cli": "^3.0.0",
+    "sass": "^1.101.0"
+  }
+}

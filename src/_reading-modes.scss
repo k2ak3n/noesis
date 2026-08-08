@@ -1,0 +1,48 @@
+/* Reading modes */
+body.noesis-reading-default {
+  --noesis-reading-layout: default;
+}
+
+body.noesis-reading-wide {
+  --noesis-content-width: 1080;
+}
+
+body.noesis-reading-book .markdown-preview-view,
+body.noesis-reading-book .markdown-source-view.mod-cm6 .cm-content,
+body.noesis-reading-book :is(.markdown-preview-view, .markdown-source-view.mod-cm6) .inline-title {
+  font-size: 1.04em;
+  line-height: 1.72;
+}
+
+body.noesis-reading-book {
+  --noesis-content-width: 700;
+}
+
+body.noesis-reading-academic .markdown-preview-view,
+body.noesis-reading-academic .markdown-source-view.mod-cm6 .cm-content,
+body.noesis-reading-academic :is(.markdown-preview-view, .markdown-source-view.mod-cm6) .inline-title {
+  font-family: "Literata", "Georgia", serif;
+  line-height: 1.78;
+}
+
+body.noesis-reading-academic {
+  --noesis-content-width: 720;
+}
+
+body.noesis-reading-custom {
+  --noesis-content-width: var(--noesis-custom-content-width);
+}
+
+.markdown-preview-view .markdown-preview-sizer,
+.markdown-source-view.mod-cm6 .cm-content {
+  transition: max-width var(--noesis-transition-normal), width var(--noesis-transition-normal);
+}
+
+body.noesis-reading-academic .markdown-rendered p {
+  text-indent: 1.5em;
+  margin-block: 0;
+}
+
+body.noesis-reading-academic .markdown-rendered p:first-of-type {
+  text-indent: 0;
+}

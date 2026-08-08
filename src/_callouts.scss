@@ -1,0 +1,295 @@
+/* Callouts */
+body.noesis-callouts-on {
+  --noesis-callout-title-bg: var(--background-primary);
+  --noesis-callout-padding-x: 1rem;
+  --noesis-callout-padding-y: 0.82rem;
+  --noesis-callout-icon-size: 1rem;
+  --noesis-callout-title-gap: 0.55rem;
+}
+body.noesis-callouts-on :is(.workspace-split.mod-left-split, .workspace-split.mod-right-split) {
+  --noesis-callout-title-bg: var(--background-secondary);
+}
+body.noesis-callouts-on :is(.workspace-leaf-content, .view-content, .modal, .prompt, .menu) {
+  --noesis-callout-title-bg: var(--noesis-bg-elevated);
+}
+body.noesis-callouts-on .callout {
+  margin-block: 1rem;
+  padding: var(--noesis-callout-padding-y) var(--noesis-callout-padding-x);
+  border: 1px solid color-mix(in srgb, var(--callout-color) 26%, var(--background-modifier-border));
+  border-left-width: 4px;
+  border-left-color: var(--callout-color);
+  border-radius: var(--radius-l);
+  background: color-mix(in srgb, var(--callout-color) 8%, var(--noesis-bg-elevated));
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+body.noesis-callouts-filled {
+  --noesis-callout-style-mode: filled;
+}
+/* Native Obsidian callout color compatibility.
+   Values remain valid CSS colors so core Obsidian can render native callouts
+   when noesis styling is disabled. */
+body.noesis-callouts-on .callout[data-callout=note] { --callout-color: rgb(122, 163, 201); }
+body.noesis-callouts-on .callout:is([data-callout=abstract], [data-callout=summary], [data-callout=tldr]) { --callout-color: rgb(106, 146, 177); }
+body.noesis-callouts-on .callout[data-callout=info] { --callout-color: rgb(82, 162, 208); }
+body.noesis-callouts-on .callout[data-callout=todo] { --callout-color: rgb(122, 163, 201); }
+body.noesis-callouts-on .callout:is([data-callout=tip], [data-callout=hint], [data-callout=important]) { --callout-color: rgb(92, 169, 126); }
+body.noesis-callouts-on .callout:is([data-callout=success], [data-callout=check], [data-callout=done]) { --callout-color: rgb(96, 160, 105); }
+body.noesis-callouts-on .callout:is([data-callout=question], [data-callout=help], [data-callout=faq]) { --callout-color: rgb(152, 126, 203); }
+body.noesis-callouts-on .callout:is([data-callout=warning], [data-callout=caution], [data-callout=attention]) { --callout-color: rgb(222, 154, 70); }
+body.noesis-callouts-on .callout:is([data-callout=failure], [data-callout=fail], [data-callout=missing], [data-callout=danger], [data-callout=error]) { --callout-color: rgb(220, 76, 70); }
+body.noesis-callouts-on .callout[data-callout=bug] { --callout-color: rgb(204, 92, 132); }
+body.noesis-callouts-on .callout[data-callout=example] { --callout-color: rgb(174, 156, 86); }
+body.noesis-callouts-on .callout:is([data-callout=quote], [data-callout=cite]) { --callout-color: rgb(143, 151, 165); }
+body.noesis-callouts-on .callout-title {
+  align-items: center;
+  gap: var(--noesis-callout-title-gap);
+  padding-bottom: 0.38rem;
+  color: color-mix(in srgb, var(--callout-color) 84%, var(--text-normal));
+  line-height: 1.25;
+}
+
+body.noesis-callouts-on .callout-title-inner {
+  font-weight: 700;
+}
+
+body.noesis-callouts-on .callout-icon {
+  flex: 0 0 var(--noesis-callout-icon-size);
+  width: var(--noesis-callout-icon-size);
+  height: var(--noesis-callout-icon-size);
+  color: var(--callout-color);
+}
+body.noesis-callouts-on .callout-title-inner {
+  line-height: 1.25;
+}
+body.noesis-callouts-on .callout-content {
+  margin-top: 0.34rem;
+  color: color-mix(in srgb, var(--text-normal) 84%, var(--text-muted));
+}
+body.noesis-callouts-on .callout-content :is(p, ul, ol) {
+  margin-block: 0.5rem;
+}
+body.noesis-callouts-on .callout-content > :first-child {
+  margin-top: 0;
+}
+body.noesis-callouts-on .callout-content > :last-child {
+  margin-bottom: 0;
+}
+body.noesis-callouts-on .callout-content .callout {
+  margin-block: 0.75rem;
+}
+
+
+body.noesis-callouts-on.noesis-callouts-outline .callout {
+  overflow: visible;
+  margin-top: 1.35rem;
+  border: 1px solid color-mix(in srgb, var(--callout-color) 48%, var(--background-modifier-border));
+  border-left-width: 1px;
+  border-left-color: color-mix(in srgb, var(--callout-color) 62%, var(--background-modifier-border));
+  background: transparent;
+  box-shadow: none;
+}
+body.noesis-callouts-on.noesis-callouts-outline .callout-title {
+  position: relative;
+  z-index: 2;
+  width: fit-content;
+  max-width: calc(100% - 1.5rem);
+  margin-top: -1.18rem;
+  margin-left: 0;
+  top: -4px;
+  padding: 0 0.56em;
+  border-radius: 0;
+  background: var(--background-primary);
+  color: color-mix(in srgb, var(--callout-color) 84%, var(--text-normal));
+  font-size: 0.86em;
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.045em;
+}
+body.noesis-callouts-on.noesis-callouts-outline .callout-title-inner {
+  line-height: 1.35;
+}
+body.noesis-callouts-on.noesis-callouts-outline .callout-content {
+  padding-top: 0.2rem;
+}
+body.noesis-callouts-on.noesis-callouts-outline .callout-content .callout {
+  margin-top: 1.45rem;
+}
+body.noesis-callouts-on.noesis-callouts-outline .cm-embed-block.cm-callout {
+  padding-top: 12px;
+}
+
+@supports (display: grid) {
+  body.noesis-callouts-on.noesis-callout-headers-hidden .callout {
+    display: grid;
+    grid-template-columns: var(--noesis-callout-icon-size) minmax(0, 1fr);
+    column-gap: var(--noesis-callout-title-gap);
+    align-items: start;
+  }
+
+  body.noesis-callouts-on.noesis-callout-headers-hidden .callout-title {
+    position: relative;
+    z-index: auto;
+    grid-column: 1;
+    grid-row: 1;
+    align-self: start;
+    width: var(--noesis-callout-icon-size);
+    min-width: var(--noesis-callout-icon-size);
+    min-height: var(--noesis-callout-icon-size);
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    font-size: 1em;
+    font-variant-caps: normal;
+    letter-spacing: normal;
+  }
+
+  body.noesis-callouts-on.noesis-callout-headers-hidden .callout-title-inner {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  body.noesis-callouts-on.noesis-callout-headers-hidden .callout-content {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
+
+body:not(.noesis-dialogs-overlays-native) {
+  --noesis-control-bg: color-mix(in srgb, var(--background-modifier-form-field) 94%, var(--background-primary));
+  --noesis-control-bg-top: color-mix(in srgb, var(--background-modifier-form-field) 88%, var(--text-normal) 4%);
+  --noesis-control-border: color-mix(in srgb, var(--text-muted) 22%, var(--background-modifier-border));
+  --noesis-control-border-focus: color-mix(in srgb, var(--noesis-current-accent) 66%, var(--background-modifier-border-hover));
+  --noesis-prompt-border: color-mix(in srgb, var(--noesis-current-accent) 46%, var(--background-modifier-border));
+  --noesis-prompt-border-focus: color-mix(in srgb, var(--noesis-current-accent) 66%, var(--background-modifier-border-hover));
+  --noesis-tooltip-bg: color-mix(in srgb, var(--background-secondary) 92%, var(--noesis-current-accent) 8%);
+  --noesis-tooltip-border: color-mix(in srgb, var(--noesis-current-accent) 72%, var(--background-modifier-border));
+  --noesis-tooltip-shadow: 0 0 0 1px color-mix(in srgb, var(--noesis-current-accent) 16%, transparent), 0 10px 28px rgba(0, 0, 0, 0.24);
+}
+
+body.noesis-dialogs-overlays-styled {
+  --noesis-dialogs-overlays-mode: styled;
+}
+
+body.theme-light:not(.noesis-dialogs-overlays-native) {
+  --noesis-control-bg: #ffffff;
+  --noesis-control-bg-top: color-mix(in srgb, #ffffff 94%, var(--noesis-current-accent) 3%);
+  --noesis-control-border: rgba(60, 60, 67, 0.18);
+  --noesis-tooltip-bg: color-mix(in srgb, var(--background-primary) 94%, var(--noesis-current-accent) 6%);
+  --noesis-tooltip-shadow: 0 0 0 1px color-mix(in srgb, var(--noesis-current-accent) 14%, transparent), 0 10px 24px rgba(31, 41, 55, 0.14);
+}
+
+body:not(.noesis-dialogs-overlays-native) input:not([type=checkbox], [type=radio], [type=range]) {
+  border: 1px solid var(--noesis-control-border) !important;
+  background: linear-gradient(180deg, var(--noesis-control-bg-top), var(--noesis-control-bg)) !important;
+  color: var(--text-normal) !important;
+  box-shadow: none !important;
+}
+
+body:not(.noesis-dialogs-overlays-native) input:not([type=checkbox], [type=radio], [type=range]):is(:focus, :focus-visible, :focus-within) {
+  border-color: var(--noesis-control-border-focus) !important;
+  box-shadow: none !important;
+}
+
+body:not(.noesis-dialogs-overlays-native) input:not([type=checkbox], [type=radio], [type=range]):focus-visible {
+  outline: 2px solid var(--noesis-current-accent);
+  outline-offset: 1px;
+}
+
+body:not(.noesis-dialogs-overlays-native) .prompt-input-container {
+  border: 1px solid var(--noesis-prompt-border) !important;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--noesis-control-bg-top) 86%, var(--noesis-current-accent) 4%), var(--noesis-control-bg)) !important;
+  box-shadow: none !important;
+}
+
+body:not(.noesis-dialogs-overlays-native) .prompt-input-container:focus-within {
+  border-color: var(--noesis-prompt-border-focus) !important;
+  box-shadow: none !important;
+}
+
+body:not(.noesis-dialogs-overlays-native) .prompt-input {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+body:not(.noesis-dialogs-overlays-native) .prompt-input::placeholder {
+  color: color-mix(in srgb, var(--text-muted) 84%, var(--text-faint)) !important;
+}
+
+body:not(.noesis-dialogs-overlays-native) .prompt-input-container :is(.search-input-clear-button, .clickable-icon) {
+  color: var(--text-muted) !important;
+  background: transparent !important;
+}
+
+body:not(.noesis-dialogs-overlays-native) .prompt-input-container :is(.search-input-clear-button, .clickable-icon):is(:hover, :focus-visible) {
+  color: var(--text-normal) !important;
+  background: color-mix(in srgb, var(--text-muted) 14%, transparent) !important;
+}
+
+body:not(.noesis-dialogs-overlays-native) .tooltip {
+  border: 1px solid var(--noesis-tooltip-border);
+  background: var(--noesis-tooltip-bg);
+  color: var(--text-normal);
+  box-shadow: var(--noesis-tooltip-shadow);
+}
+
+body:not(.noesis-dialogs-overlays-native) .tooltip .tooltip-content {
+  background: transparent;
+  color: inherit;
+}
+
+body:not(.noesis-dialogs-overlays-native) .tooltip .tooltip-arrow {
+  border-color: transparent;
+}
+
+body:not(.noesis-dialogs-overlays-native) .tooltip.mod-right .tooltip-arrow {
+  border-right-color: var(--noesis-tooltip-border);
+}
+
+body:not(.noesis-dialogs-overlays-native) .tooltip.mod-left .tooltip-arrow {
+  border-left-color: var(--noesis-tooltip-border);
+}
+
+body:not(.noesis-dialogs-overlays-native) .tooltip.mod-top .tooltip-arrow {
+  border-top-color: var(--noesis-tooltip-border);
+}
+
+body:not(.noesis-dialogs-overlays-native) .tooltip.mod-bottom .tooltip-arrow {
+  border-bottom-color: var(--noesis-tooltip-border);
+}
+
+body.noesis-dialogs-overlays-solid .modal-bg {
+  opacity: 1 !important;
+  background: var(--noesis-modal-backdrop-solid-bg, var(--background-primary)) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+body.theme-dark.noesis-dialogs-overlays-solid {
+  --noesis-modal-backdrop-solid-bg: color-mix(in srgb, var(--background-primary) 72%, #000000);
+}
+
+body.theme-light.noesis-dialogs-overlays-solid {
+  --noesis-modal-backdrop-solid-bg: color-mix(in srgb, var(--background-primary) 76%, #dfe4eb);
+}
+
+body.noesis-callouts-on .callout.is-collapsible .callout-title:focus-visible {
+  outline: 2px solid var(--noesis-current-accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-m);
+}
+
+body.noesis-dialogs-overlays-solid :is(.modal, .prompt) {
+  border-color: color-mix(in srgb, var(--noesis-current-accent) 18%, var(--background-modifier-border)) !important;
+}

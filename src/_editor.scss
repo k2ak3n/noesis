@@ -1,0 +1,484 @@
+@use 'preset-groups' as presets;
+
+$include-htb: false !default;
+
+/* Editor and rendered content */
+body:is(.noesis-reading-custom, .noesis-reading-wide, .noesis-reading-book, .noesis-reading-academic) :is(.markdown-preview-view, .markdown-source-view.mod-cm6) {
+  --file-line-width: min(calc(var(--noesis-content-width) * 1px), 100%);
+}
+
+body:is(.noesis-reading-custom, .noesis-reading-wide, .noesis-reading-book, .noesis-reading-academic) .markdown-preview-view .markdown-preview-sizer,
+body:is(.noesis-reading-custom, .noesis-reading-wide, .noesis-reading-book, .noesis-reading-academic) .markdown-source-view.mod-cm6 .cm-content,
+body:is(.noesis-reading-custom, .noesis-reading-wide, .noesis-reading-book, .noesis-reading-academic) :is(.markdown-preview-view, .markdown-source-view.mod-cm6) .inline-title {
+  width: min(var(--noesis-content-width) * 1px, 100%) !important;
+  max-width: min(var(--noesis-content-width) * 1px, 100%) !important;
+  margin-inline: auto !important;
+  box-sizing: border-box !important;
+}
+
+.inline-title {
+  color: var(--noesis-note-title-color);
+  font-weight: 750;
+  letter-spacing: 0;
+  margin-bottom: 1.4rem;
+}
+
+@if $include-htb {
+body.noesis-preset-htb .inline-title {
+  color: var(--text-normal) !important;
+}
+}
+
+.markdown-rendered :is(h1, h2, h3, h4, h5, h6),
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-header {
+  letter-spacing: 0;
+  line-height: 1.18;
+}
+
+.markdown-rendered :is(ul, ol) > li:not(.task-list-item)::marker,
+.markdown-rendered :is(ul, ol) > li:not(.task-list-item) > :is(ul, ol) li::marker {
+  color: var(--list-marker-color);
+  font-weight: 700;
+}
+
+.markdown-rendered li:not(.task-list-item) > .list-bullet::after {
+  background-color: var(--list-marker-color);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--noesis-list-marker-color) 10%, transparent);
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-list-line:not(.HyperMD-task-line) .cm-formatting-list,
+.markdown-source-view.mod-cm6 .cm-line:not(.HyperMD-task-line) :is(.cm-formatting-list, .cm-formatting-list-ul, .cm-formatting-list-ol),
+.markdown-source-view.mod-cm6 .cm-line:not(.HyperMD-task-line) .list-bullet::after {
+  color: var(--list-marker-color) !important;
+}
+
+.markdown-source-view.mod-cm6 .cm-line:not(.HyperMD-task-line) .list-bullet::after {
+  background-color: var(--list-marker-color) !important;
+}
+
+.markdown-rendered h1,
+.markdown-source-view.mod-cm6 .cm-header-1 {
+  color: var(--h1-color);
+}
+
+.markdown-rendered h2,
+.markdown-source-view.mod-cm6 .cm-header-2 {
+  color: var(--h2-color);
+}
+
+.markdown-rendered h3,
+.markdown-source-view.mod-cm6 .cm-header-3 {
+  color: var(--h3-color);
+}
+
+.markdown-rendered h4,
+.markdown-source-view.mod-cm6 .cm-header-4 {
+  color: var(--h4-color);
+}
+
+.markdown-rendered h5,
+.markdown-source-view.mod-cm6 .cm-header-5 {
+  color: var(--h5-color);
+}
+
+.markdown-rendered h6,
+.markdown-source-view.mod-cm6 .cm-header-6 {
+  color: var(--h6-color);
+}
+
+body:not(.noesis-heading-none) .markdown-rendered :is(h1, h2, h3, h4, h5, h6),
+body:not(.noesis-heading-none) .markdown-source-view.mod-cm6 .cm-line.HyperMD-header {
+  position: relative;
+}
+
+body.noesis-heading-underline .markdown-rendered :is(h1, h2, h3, h4, h5, h6),
+body.noesis-heading-underline .markdown-source-view.mod-cm6 .cm-line.HyperMD-header {
+  padding-bottom: 0.28em;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 34%, transparent);
+}
+
+body.noesis-heading-card .markdown-rendered :is(h1, h2, h3, h4, h5, h6),
+body.noesis-heading-card .markdown-source-view.mod-cm6 .cm-line.HyperMD-header,
+body.noesis-heading-tonal .markdown-rendered :is(h1, h2, h3, h4, h5, h6),
+body.noesis-heading-tonal .markdown-source-view.mod-cm6 .cm-line.HyperMD-header {
+  padding: 0.32em 0.55em;
+  border-radius: var(--radius-l);
+  background: color-mix(in srgb, currentColor 9%, transparent);
+}
+
+body.noesis-heading-card .markdown-rendered :is(h1, h2, h3, h4, h5, h6),
+body.noesis-heading-card .markdown-source-view.mod-cm6 .cm-line.HyperMD-header {
+  border: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+}
+
+body.noesis-heading-outline .markdown-rendered :is(h1, h2, h3, h4, h5, h6),
+body.noesis-heading-outline .markdown-source-view.mod-cm6 .cm-line.HyperMD-header {
+  padding: 0.28em 0.5em;
+  border: 1px solid color-mix(in srgb, currentColor 34%, transparent);
+  border-radius: var(--radius-l);
+}
+
+.markdown-rendered a,
+.cm-hmd-internal-link,
+.cm-link {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  transition: color var(--noesis-transition-fast), text-decoration-color var(--noesis-transition-fast);
+}
+
+.markdown-rendered a:hover,
+.cm-hmd-internal-link:hover,
+.cm-link:hover {
+  color: var(--link-color-hover) !important;
+}
+
+.markdown-rendered mark,
+.cm-highlight {
+  border-radius: var(--radius-s);
+  padding-inline: 0.15em;
+  background: var(--text-highlight-bg);
+  color: var(--text-normal);
+}
+
+.markdown-rendered :is(.is-flashing, .mod-highlighted),
+.markdown-source-view.mod-cm6 :is(.is-flashing, .mod-highlighted) {
+  background-color: var(--noesis-highlight-bg-active) !important;
+  color: inherit;
+}
+
+.markdown-rendered blockquote {
+  padding: 0.75rem 1rem;
+  border-inline-start: 3px solid var(--blockquote-border-color);
+  border-radius: var(--radius-l);
+  background: var(--blockquote-background-color);
+  color: color-mix(in srgb, var(--text-normal) 86%, var(--text-muted));
+}
+
+@if $include-htb {
+body.noesis-preset-htb .markdown-rendered blockquote {
+  color: #8799B5;
+}
+}
+
+.markdown-rendered hr {
+  margin-block: 2.2rem;
+  border: 0;
+  border-top: 1px solid color-mix(in srgb, var(--noesis-current-accent) 22%, var(--background-modifier-border));
+  opacity: 0.65;
+}
+
+body.noesis-codebox-on .markdown-rendered code,
+body.noesis-codebox-on .cm-inline-code,
+body.noesis-codebox-on .markdown-source-view.mod-cm6 span.cm-inline-code {
+  border: 1px solid color-mix(in srgb, var(--noesis-code-inline-color) 28%, transparent);
+  border-radius: var(--radius-s);
+  background: var(--noesis-code-inline-bg) !important;
+  color: var(--noesis-code-inline-color) !important;
+  font-size: 0.9em;
+  padding: 0.05em 0.28em !important;
+}
+
+body.noesis-codebox-on .markdown-rendered pre,
+body.noesis-codebox-on .markdown-rendered pre code {
+  background-color: var(--noesis-codeblock-bg) !important;
+  color: var(--noesis-codeblock-text) !important;
+}
+
+body.noesis-codebox-on .markdown-rendered pre {
+  border: 1px solid var(--noesis-codeblock-border);
+  border-radius: var(--radius-l);
+  padding: 0.95rem 1rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+body.noesis-codebox-on .markdown-rendered pre code {
+  border: 0;
+  padding: 0;
+}
+
+body.noesis-codebox-on .markdown-rendered pre code,
+body.noesis-codebox-on .markdown-source-view.mod-cm6 .HyperMD-codeblock,
+body.noesis-codebox-on .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock,
+body.noesis-codebox-on .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-begin,
+body.noesis-codebox-on .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-end {
+  font-family: var(--font-monospace-theme), var(--font-monospace);
+  line-height: 1.55;
+}
+
+body.noesis-codebox-on .markdown-source-view.mod-cm6 .HyperMD-codeblock,
+body.noesis-codebox-on .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock,
+body.noesis-codebox-on .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-begin,
+body.noesis-codebox-on .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-end {
+  background-color: var(--noesis-codeblock-bg) !important;
+  background-image: none !important;
+  border-inline: 1px solid var(--noesis-codeblock-border);
+  box-sizing: border-box;
+  color: var(--noesis-codeblock-text) !important;
+  padding-inline: 1rem !important;
+}
+
+body.noesis-codebox-on .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-begin,
+body.noesis-codebox-on .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-end {
+  border-color: var(--noesis-codeblock-border) !important;
+}
+
+body.noesis-codebox-on .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-begin {
+  border-top: 1px solid var(--noesis-codeblock-border) !important;
+  border-radius: var(--radius-l) var(--radius-l) 0 0;
+  margin-top: 0.65rem;
+  padding-top: 0.75rem !important;
+}
+
+body.noesis-codebox-on .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-end {
+  border-bottom: 1px solid var(--noesis-codeblock-border) !important;
+  border-radius: 0 0 var(--radius-l) var(--radius-l);
+  margin-bottom: 0.65rem;
+  padding-bottom: 0.75rem !important;
+}
+
+body.noesis-codebox-on .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end) {
+  padding-block: 0.08rem !important;
+}
+
+.markdown-rendered pre :is(.token.comment, .token.block-comment, .token.prolog, .token.doctype, .token.cdata) {
+  color: var(--code-comment);
+}
+
+.markdown-rendered pre .token.punctuation {
+  color: var(--code-punctuation);
+}
+
+.markdown-rendered pre :is(.token.tag, .token.attr-name, .token.namespace, .token.deleted) {
+  color: var(--code-attribute);
+}
+
+.markdown-rendered pre .token.function-name {
+  color: var(--code-func-name);
+}
+
+.markdown-rendered pre :is(.token.boolean, .token.number, .token.function) {
+  color: var(--code-important);
+}
+
+.markdown-rendered pre :is(.token.property, .token.class-name, .token.constant, .token.symbol) {
+  color: var(--code-function);
+}
+
+.markdown-rendered pre :is(.token.selector, .token.important, .token.atrule, .token.keyword, .token.builtin) {
+  color: var(--code-operator);
+}
+
+.markdown-rendered pre :is(.token.string, .token.char, .token.attr-value, .token.regex, .token.variable) {
+  color: var(--code-string);
+}
+
+.markdown-rendered pre :is(.token.operator, .token.entity, .token.url) {
+  color: var(--code-value);
+}
+
+.markdown-rendered pre :is(.token.important, .token.bold) {
+  font-weight: 700;
+}
+
+.markdown-rendered pre .token.inserted {
+  color: var(--noesis-current-accent);
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-codeblock :is(.cm-comment) {
+  color: var(--code-comment);
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-codeblock :is(.cm-punctuation, .cm-bracket, .cm-hr) {
+  color: var(--code-punctuation) !important;
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-codeblock .cm-link {
+  color: var(--code-property);
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-codeblock :is(.cm-qualifier, .cm-string, .cm-variable-2, .cm-def) {
+  color: var(--code-string);
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-codeblock :is(.cm-tag, .cm-attribute) {
+  color: var(--code-attribute);
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-codeblock :is(.cm-number, .cm-atom) {
+  color: var(--code-important);
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-codeblock :is(.cm-keyword, .cm-builtin, .cm-operator) {
+  color: var(--code-operator);
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-codeblock :is(.cm-property, .cm-type) {
+  color: var(--code-function);
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-codeblock :is(.cm-math, .cm-variable, .cm-variable-3, .cm-meta) {
+  color: var(--code-normal);
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-codeblock .cm-string-2 {
+  color: var(--code-value);
+}
+
+@if $include-htb {
+@include presets.htb-syntax-family {
+  .markdown-rendered pre :is(.token.comment, .token.block-comment, .token.prolog, .token.doctype, .token.cdata),
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock .cm-comment {
+    font-style: italic;
+  }
+
+  .markdown-rendered pre .token.function,
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock .cm-def {
+    color: var(--code-func-name);
+  }
+
+  .markdown-rendered pre .token.boolean,
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock .cm-atom {
+    color: #ff9cac;
+  }
+
+  .markdown-rendered pre .token.property,
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock .cm-property {
+    color: var(--code-property);
+  }
+
+  .markdown-rendered pre :is(.token.tag, .token.deleted),
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock .cm-tag {
+    color: var(--code-tag);
+  }
+
+  .markdown-rendered pre .token.inserted {
+    color: #C3E88D;
+  }
+}
+}
+
+body.noesis-tables-on .markdown-rendered table {
+  overflow: hidden;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: var(--noesis-border-thin);
+  border-radius: var(--noesis-table-radius);
+}
+
+body.noesis-tables-on .markdown-rendered th {
+  background: var(--noesis-table-header-bg);
+  color: var(--text-normal);
+  font-weight: 600;
+}
+
+body.noesis-tables-on .markdown-rendered tbody tr:nth-child(even) td {
+  background: var(--noesis-table-row-alt-bg);
+}
+
+body.noesis-tables-on .markdown-rendered td,
+body.noesis-tables-on .markdown-rendered th {
+  border-color: var(--background-modifier-border);
+}
+
+body.noesis-tables-on .markdown-rendered td {
+  transition: background-color var(--noesis-transition-fast);
+}
+
+body.noesis-tables-on .markdown-rendered tbody tr:hover td {
+  background: color-mix(in srgb, var(--noesis-current-accent) 6%, var(--noesis-table-row-alt-bg, var(--background-primary))) !important;
+}
+
+input[type=checkbox] {
+  accent-color: var(--noesis-current-accent);
+}
+
+.markdown-rendered img {
+  border-radius: var(--radius-m);
+  max-width: 100%;
+  height: auto;
+}
+
+.image-captions {
+  display: block;
+  margin-top: 0.45rem;
+  text-align: center;
+  font-size: 0.85em;
+  color: var(--text-muted);
+}
+
+body .copy-code-button {
+  border-radius: var(--radius-pill);
+  background: var(--background-primary-alt);
+  color: var(--text-muted);
+  transition: background-color var(--noesis-transition-fast), color var(--noesis-transition-fast);
+  &:hover {
+    background: var(--noesis-current-accent);
+    color: var(--background-primary);
+  }
+}
+
+body .code-block-flair {
+  font-size: 0.72em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.footnote-link {
+  color: var(--link-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footnotes {
+  margin-top: 3.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--background-modifier-border);
+  color: var(--text-muted);
+  font-size: 0.9em;
+}
+
+.math-block {
+  padding: 1.1rem;
+  border-radius: var(--radius-m);
+  background: color-mix(in srgb, var(--noesis-current-accent) 4%, var(--background-secondary-alt));
+  margin-block: 1.2rem;
+  overflow-x: auto;
+}
+
+body :is(.markdown-embed, .file-embed) {
+  border: 1px solid color-mix(in srgb, var(--noesis-current-accent) 18%, var(--background-modifier-border));
+  border-radius: var(--radius-l);
+  box-shadow: none;
+  padding-inline: 1rem;
+}
+
+body.noesis-active-line-highlight :is(.markdown-source-view.mod-cm6, .cm-editor) :is(.cm-activeLine, .cm-activeLineGutter, .cm-active.cm-line) {
+  background-color: color-mix(in srgb, var(--noesis-current-accent) 8%, transparent) !important;
+}
+
+
+body .mermaid svg {
+  --mermaid-theme-variables-accent: var(--noesis-current-accent);
+  rect.node {
+    fill: var(--background-primary-alt);
+    stroke: var(--noesis-current-accent);
+  }
+  path.edgePath {
+    stroke: var(--noesis-current-accent);
+  }
+  .label {
+    color: var(--text-normal);
+  }
+}
+
+body :is(.canvas-node-label, .canvas-edge-label) {
+  background-color: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-pill);
+  padding: 0.22rem 0.55rem;
+  font-size: 0.8em;
+  color: var(--text-normal);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+

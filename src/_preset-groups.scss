@@ -1,0 +1,20 @@
+$htb-syntax-family: '.noesis-preset-htb, .noesis-syntax-htb';
+$pills-tab-family: '.noesis-tabs-pills';
+
+@mixin htb-syntax-family {
+  body:is(#{$htb-syntax-family}) {
+    @content;
+  }
+}
+
+@mixin root-pills-tabs {
+  body:is(#{$pills-tab-family}):not(.noesis-tabs-obsidian) .workspace .mod-root .workspace-tabs:not(.mod-stacked) {
+    @content;
+  }
+}
+
+@mixin root-tab-style($style) {
+  body.noesis-tabs-#{$style}:not(.noesis-tabs-obsidian) .workspace .mod-root .workspace-tabs:not(.mod-stacked) {
+    @content;
+  }
+}

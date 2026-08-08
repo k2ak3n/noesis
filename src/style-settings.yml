@@ -1,0 +1,726 @@
+name: noesis
+id: noesis-settings
+settings:
+  # 1. Visual Palette
+  -
+    id: visual-system-category
+    title: Visual Palette
+    type: heading
+    level: 1
+    collapsed: true
+  -
+    id: noesis-workspace-preset
+    title: Visual Preset
+    description: Applies a coordinated workspace palette.
+    type: class-select
+    allowEmpty: false
+    default: noesis-preset-default
+    options:
+      -
+        label: Default
+        value: noesis-preset-default
+      -
+        label: HTB
+        value: noesis-preset-htb
+
+  -
+    id: noesis-colors-code-subcategory
+    title: Syntax Highlighting
+    type: heading
+    level: 2
+    collapsed: true
+  -
+    id: noesis-syntax-palette
+    title: Syntax Palette
+    description: Controls token colors inside Codeboxes. Accent Adaptive follows the active accent; HTB uses the shared Hack The Box syntax palette.
+    type: class-select
+    allowEmpty: false
+    default: noesis-syntax-accent
+    options:
+      -
+        label: Accent Adaptive
+        value: noesis-syntax-accent
+      -
+        label: Visual Studio Code
+        value: noesis-syntax-vscode
+      -
+        label: One Dark
+        value: noesis-syntax-one-dark
+      -
+        label: Solarized
+        value: noesis-syntax-solarized
+      -
+        label: HTB
+        value: noesis-syntax-htb
+  -
+    id: noesis-code-contrast
+    title: Code Contrast
+    description: Adjusts inline code and code block separation without changing the rest of the note palette.
+    type: class-select
+    allowEmpty: false
+    default: noesis-code-contrast-balanced
+    options:
+      -
+        label: Balanced
+        value: noesis-code-contrast-balanced
+      -
+        label: Strong
+        value: noesis-code-contrast-strong
+      -
+        label: Soft
+        value: noesis-code-contrast-soft
+
+
+  # 2. Layout & Spacing
+  -
+    id: layout-category
+    title: Layout & Spacing
+    type: heading
+    level: 1
+    collapsed: true
+  -
+    id: noesis-density
+    title: Interface Density
+    description: Comfortable keeps the 1.0 spacing. Compact tightens chrome, metadata, callouts, lists, and note rhythm for dense vault work.
+    type: class-select
+    allowEmpty: false
+    default: noesis-density-comfortable
+    options:
+      -
+        label: Comfortable
+        value: noesis-density-comfortable
+      -
+        label: Compact
+        value: noesis-density-compact
+  -
+    id: noesis-layout-reading-subcategory
+    title: Reading Layout
+    type: heading
+    level: 2
+    collapsed: true
+  -
+    id: noesis-reading-mode
+    title: Reading Layout
+    description: Select the reading mode layout style (e.g. wide, book, academic).
+    type: class-select
+    allowEmpty: false
+    default: noesis-reading-default
+    options:
+      -
+        label: Default
+        value: noesis-reading-default
+      -
+        label: Wide
+        value: noesis-reading-wide
+      -
+        label: Book
+        value: noesis-reading-book
+      -
+        label: Academic
+        value: noesis-reading-academic
+      -
+        label: Custom
+        value: noesis-reading-custom
+  -
+    id: noesis-custom-content-width
+    title: Custom Reading Width
+    description: Adjust custom page reading width in pixels (only applies when Reading Layout is set to Custom).
+    type: variable-number-slider
+    default: 1200
+    min: 560
+    max: 1200
+    step: 20
+  -
+    id: noesis-active-line-highlight
+    title: Active Line Highlight
+    description: Highlight the currently active/focused text line in the editor.
+    type: class-toggle
+    default: false
+  -
+    id: noesis-layout-print-subcategory
+    title: PDF Export
+    type: heading
+    level: 2
+    collapsed: true
+  -
+    id: noesis-print-density
+    title: PDF Export Density
+    description: Readable keeps generous spacing. Compact fits more technical notes onto each exported page.
+    type: class-select
+    allowEmpty: false
+    default: noesis-print-readable
+    options:
+      -
+        label: Readable
+        value: noesis-print-readable
+      -
+        label: Compact
+        value: noesis-print-compact
+  -
+    id: noesis-print-link-urls
+    title: Print External Link URLs
+    description: Adds the URL after external links in printed/PDF output.
+    type: class-toggle
+    default: false
+  -
+    id: noesis-print-heading-colors
+    title: Preserve Heading Colors
+    description: Keeps the active note title and heading colors in printed/PDF output. Leave off for neutral, printer-safe exports.
+    type: class-toggle
+    default: false
+
+  -
+    id: noesis-layout-headings-subcategory
+    title: Note Headings
+    type: heading
+    level: 2
+    collapsed: true
+  -
+    id: noesis-heading-treatment
+    title: Heading Treatment
+    description: Select style treatments for note headers (e.g. underline, outline, tonal block).
+    type: class-select
+    allowEmpty: false
+    default: noesis-heading-underline
+    options:
+      -
+        label: None
+        value: noesis-heading-none
+      -
+        label: Underline
+        value: noesis-heading-underline
+      -
+        label: Soft Card
+        value: noesis-heading-card
+      -
+        label: Tonal Block
+        value: noesis-heading-tonal
+      -
+        label: Outline
+        value: noesis-heading-outline
+  -
+    id: noesis-heading-color-mode
+    title: Heading Color Source
+    description: Preset Heading Palette uses the selected visual preset's heading colors.
+    type: class-select
+    allowEmpty: false
+    default: noesis-headings-preset
+    options:
+      -
+        label: Preset Defined - Accent
+        value: noesis-headings-preset-accent
+      -
+        label: Preset Defined - Multicolor
+        value: noesis-headings-preset
+      -
+        label: Custom Per Level
+        value: noesis-headings-custom-levels
+      -
+        label: Disable
+        value: noesis-headings-default
+  -
+    id: noesis-layout-heading-sizes-subsubcategory
+    title: Heading Font Sizes
+    type: heading
+    level: 3
+    collapsed: true
+  -
+    id: noesis-h1-size
+    title: H1 Font Size
+    description: Adjust the size of H1 headings.
+    type: variable-number-slider
+    default: 2
+    min: 1
+    max: 4
+    step: 0.1
+    format: em
+  -
+    id: noesis-h2-size
+    title: H2 Font Size
+    description: Adjust the size of H2 headings.
+    type: variable-number-slider
+    default: 1.6
+    min: 0.9
+    max: 3
+    step: 0.05
+    format: em
+  -
+    id: noesis-h3-size
+    title: H3 Font Size
+    description: Adjust the size of H3 headings.
+    type: variable-number-slider
+    default: 1.37
+    min: 0.8
+    max: 2.5
+    step: 0.05
+    format: em
+  -
+    id: noesis-h4-size
+    title: H4 Font Size
+    description: Adjust the size of H4 headings.
+    type: variable-number-slider
+    default: 1.25
+    min: 0.7
+    max: 2
+    step: 0.05
+    format: em
+  -
+    id: noesis-h5-size
+    title: H5 Font Size
+    description: Adjust the size of H5 headings.
+    type: variable-number-slider
+    default: 1.12
+    min: 0.6
+    max: 1.8
+    step: 0.05
+    format: em
+  -
+    id: noesis-h6-size
+    title: H6 Font Size
+    description: Adjust the size of H6 headings.
+    type: variable-number-slider
+    default: 1
+    min: 0.5
+    max: 1.5
+    step: 0.05
+    format: em
+  -
+    id: noesis-colors-heading-custom-subsubcategory
+    title: Custom Heading Colors
+    type: heading
+    level: 3
+    collapsed: true
+  -
+    id: noesis-heading-h1-color
+    title: H1 Color
+    description: Only applies when Heading Color Source is set to Custom Per Level.
+    type: variable-color
+    opacity: false
+    format: hex
+    default: '#8b6fd6'
+  -
+    id: noesis-heading-h2-color
+    title: H2 Color
+    description: Only applies when Heading Color Source is set to Custom Per Level.
+    type: variable-color
+    opacity: false
+    format: hex
+    default: '#4f8cc9'
+  -
+    id: noesis-heading-h3-color
+    title: H3 Color
+    description: Only applies when Heading Color Source is set to Custom Per Level.
+    type: variable-color
+    opacity: false
+    format: hex
+    default: '#4f9b7c'
+  -
+    id: noesis-heading-h4-color
+    title: H4 Color
+    description: Only applies when Heading Color Source is set to Custom Per Level.
+    type: variable-color
+    opacity: false
+    format: hex
+    default: '#b27755'
+  -
+    id: noesis-heading-h5-color
+    title: H5 Color
+    description: Only applies when Heading Color Source is set to Custom Per Level.
+    type: variable-color
+    opacity: false
+    format: hex
+    default: '#a08845'
+  -
+    id: noesis-heading-h6-color
+    title: H6 Color
+    description: Only applies when Heading Color Source is set to Custom Per Level.
+    type: variable-color
+    opacity: false
+    format: hex
+    default: '#63758a'
+
+  -
+    id: noesis-layout-tab-style-subcategory
+    title: Tab Styles
+    type: heading
+    level: 2
+    collapsed: true
+  -
+    id: noesis-tab-style
+    title: Tab Style
+    description: Select a tab style variant.
+    type: class-select
+    allowEmpty: false
+    default: noesis-tabs-obsidian
+    options:
+      -
+        label: Obsidian Default
+        value: noesis-tabs-obsidian
+      -
+        label: noesis Pills
+        value: noesis-tabs-pills
+      -
+        label: noesis Underline
+        value: noesis-tabs-underline
+  -
+    id: noesis-tab-active-bold
+    title: Bold Active Tab Text
+    description: Use bold font weight for the active note tab title.
+    type: class-toggle
+    default: false
+  -
+    id: noesis-tab-active-accent
+    title: Accent Active Tab Text And Icon
+    description: Use the active accent for the selected tab title and icon across every tab style.
+    type: class-toggle
+    default: true
+  -
+    id: noesis-note-nav-separator-line
+    title: View Header Divider Line
+    description: Show a divider line separating the view header navigation from note content.
+    type: class-toggle
+    default: false
+  -
+    id: noesis-tab-pills-layout-subcategory
+    title: noesis Pills Layout
+    type: heading
+    level: 3
+    collapsed: true
+  -
+    id: noesis-tab-height
+    title: Tab Height
+    description: Set the height of workspace tabs in pixels.
+    type: variable-number-slider
+    default: 37
+    min: 34
+    max: 48
+    step: 1
+  -
+    id: noesis-tab-row-padding-y
+    title: Tab Vertical Inset
+    description: Adjust the vertical spacing within the tab strip.
+    type: variable-number-slider
+    default: -3
+    min: -8
+    max: 10
+    step: 1
+  -
+    id: noesis-tab-surface-gap
+    title: Tab-to-Content Gap
+    description: Adjust the vertical gap between the active tab header and the note editor content.
+    type: variable-number-slider
+    default: 2
+    min: 0
+    max: 8
+    step: 1
+
+  -
+    id: noesis-layout-stacked-tabs-subcategory
+    title: Stacked Tabs
+    type: heading
+    level: 2
+    collapsed: true
+  -
+    id: noesis-stacked-pane-width
+    title: Stacked Pane Width
+    description: Set the width of stacked note panes in pixels.
+    type: variable-number-slider
+    default: 700
+    min: 420
+    max: 1200
+    step: 10
+  -
+    id: noesis-stacked-header-width
+    title: Stacked Header Width
+    description: Set the width of stacked tab headers (spines) in pixels.
+    type: variable-number-slider
+    default: 42
+    min: 32
+    max: 72
+    step: 1
+  -
+    id: noesis-stacked-font-size
+    title: Stacked Tab Font Size
+    description: Adjust the font size of text on stacked tab headers.
+    type: variable-number-slider
+    default: 12
+    min: 10
+    max: 16
+    step: 1
+  -
+    id: noesis-stacked-font-weight
+    title: Stacked Tab Font Weight
+    description: Adjust the font weight of text on stacked tab headers.
+    type: variable-number-slider
+    default: 500
+    min: 400
+    max: 800
+    step: 50
+  -
+    id: noesis-stacked-tab-active-accent
+    title: Accent Active Tab Text And Icon
+    description: Use the active accent for the selected stacked tab's title and icons.
+    type: class-toggle
+    default: false
+  -
+    id: noesis-stacked-spine-orientation
+    title: Stacked Spine Orientation
+    description: Position flipped stacked-tab titles at the top, bottom, or center.
+    type: class-select
+    allowEmpty: false
+    default: noesis-stacked-tabs-top
+    options:
+      -
+        label: Top
+        value: noesis-stacked-tabs-top
+      -
+        label: Bottom
+        value: noesis-stacked-tabs-bottom
+      -
+        label: Center
+        value: noesis-stacked-tabs-center
+  -
+    id: noesis-layout-sidebar-subcategory
+    title: Sidebar & Navigation
+    type: heading
+    level: 2
+    collapsed: true
+  -
+    id: noesis-sidebar-folder-weight
+    title: Folder Label Weight
+    description: Set the font weight for folder labels in the file explorer.
+    type: variable-number-slider
+    default: 500
+    min: 400
+    max: 700
+    step: 10
+  -
+    id: noesis-sidebar-pill-items-subcategory
+    title: Pill-Style File Explorer
+    type: heading
+    level: 3
+    collapsed: true
+  -
+    id: noesis-sidebar-items-follow-tab-style
+    title: Enable Pill-Style File Explorer
+    description: Apply the noesis Pill style to file explorer folders and notes.
+    type: class-toggle
+    default: false
+  -
+    id: noesis-sidebar-parent-highlights
+    title: Highlight Parent Folders
+    description: Mirrors selected child note state onto parent folders. Leave off for very large vaults.
+    type: class-toggle
+    default: false
+  -
+    id: noesis-sidebar-item-tab-height
+    title: Folder And Note Tab Height
+    description: Adjust the vertical height of navigation list items in the file explorer.
+    type: variable-number-slider
+    default: 28
+    min: 18
+    max: 30
+    step: 1
+  -
+    id: noesis-sidebar-item-tab-gap
+    title: Folder And Note Vertical Gap
+    description: Adjust the vertical spacing between navigation items in the file explorer.
+    type: variable-number-slider
+    default: -4
+    min: -4
+    max: 4
+    step: 1
+  -
+    id: noesis-sidebar-item-tab-padding-x
+    title: Folder And Note Horizontal Padding
+    description: Adjust the horizontal padding of navigation items in the file explorer.
+    type: variable-number-slider
+    default: 8
+    min: 0
+    max: 10
+    step: 1
+
+  # 3. Styled Elements
+  -
+    id: components-category
+    title: Styled Elements
+    type: heading
+    level: 1
+    collapsed: true
+  -
+    id: noesis-components-callouts-subcategory
+    title: Callouts
+    type: heading
+    level: 2
+    collapsed: true
+  -
+    id: noesis-callouts-on
+    title: Styled Callouts
+    description: Toggle custom noesis styles for callouts.
+    type: class-toggle
+    default: true
+  -
+    id: noesis-callout-style
+    title: Callout Style
+    description: Select filled or outline callout style.
+    type: class-select
+    allowEmpty: false
+    default: noesis-callouts-filled
+    options:
+      -
+        label: Filled
+        value: noesis-callouts-filled
+      -
+        label: Outline
+        value: noesis-callouts-outline
+  -
+    id: noesis-callout-headers-hidden
+    title: Hide Callout Headers
+    description: Use the compact icon-only layout with the body beside the icon.
+    type: class-toggle
+    default: false
+
+  -
+    id: noesis-components-tasks-subcategory
+    title: Task Lists
+    type: heading
+    level: 2
+    collapsed: true
+  -
+    id: noesis-tasks-on
+    title: Styled Task List
+    description: Toggle custom noesis priority styles for tasks.
+    type: class-toggle
+    default: true
+  -
+    id: noesis-task-priority-style
+    title: Priority Treatment
+    description: "Styles task markers: [!] Critical, [H] High, [M] Medium, and [L] Low."
+    type: class-select
+    allowEmpty: false
+    default: noesis-task-priority-rail
+    options:
+      -
+        label: Checkbox Only
+        value: noesis-task-priority-checkbox
+      -
+        label: Priority Rail
+        value: noesis-task-priority-rail
+      -
+        label: Soft Row
+        value: noesis-task-priority-row
+      -
+        label: Solid Row
+        value: noesis-task-priority-solid
+  -
+    id: noesis-tasks-priority-colors-subsubcategory
+    title: Custom Task Priority Colors
+    type: heading
+    level: 3
+    collapsed: true
+  -
+    id: noesis-task-critical-color
+    title: Critical Task Color
+    description: Custom color for Critical task lines and checkbox highlights.
+    type: variable-color
+    opacity: false
+    format: hex
+    default: '#ea4458'
+  -
+    id: noesis-task-high-color
+    title: High Task Color
+    description: Custom color for High task lines and checkbox highlights.
+    type: variable-color
+    opacity: false
+    format: hex
+    default: '#fd884b'
+  -
+    id: noesis-task-medium-color
+    title: Medium Task Color
+    description: Custom color for Medium task lines and checkbox highlights.
+    type: variable-color
+    opacity: false
+    format: hex
+    default: '#f1c24d'
+  -
+    id: noesis-task-low-color
+    title: Low Task Color
+    description: Custom color for Low task lines and checkbox highlights.
+    type: variable-color
+    opacity: false
+    format: hex
+    default: '#5cdf95'
+
+  -
+    id: noesis-components-code-tables-subcategory
+    title: Codebox & Tables
+    type: heading
+    level: 2
+    collapsed: true
+  -
+    id: noesis-codebox-on
+    title: Styled Codebox
+    description: Toggle custom noesis Codebox styling.
+    type: class-toggle
+    default: true
+  -
+    id: noesis-tables-on
+    title: Styled Tables
+    description: Toggle custom noesis table formatting.
+    type: class-toggle
+    default: true
+
+  -
+    id: noesis-components-other-subcategory
+    title: Other Elements
+    type: heading
+    level: 2
+    collapsed: true
+  -
+    id: noesis-search-matches-accent
+    title: Accent Search Matches
+    description: Use the active accent for matched text in command, file, and in-note search. Turn off to restore Obsidian's native match styling.
+    type: class-toggle
+    default: true
+  -
+    id: noesis-properties-list
+    title: Styled Properties List
+    description: Applies noesis' compact list treatment to note properties. Turn off to use Obsidian's native styling.
+    type: class-toggle
+    default: true
+  -
+    id: noesis-blockquote-border-color
+    title: Blockquote Border Color
+    description: Custom border color for blockquotes in notes.
+    type: variable-color
+    opacity: true
+    format: hex
+  -
+    id: noesis-dialogs-overlays
+    title: Dialogs And Overlays
+    description: Styles inputs, prompts, hover tooltips, and optionally uses a solid modal backdrop.
+    type: class-select
+    allowEmpty: false
+    default: noesis-dialogs-overlays-styled
+    options:
+      -
+        label: Native
+        value: noesis-dialogs-overlays-native
+      -
+        label: Styled
+        value: noesis-dialogs-overlays-styled
+      -
+        label: Styled + Solid Backdrop
+        value: noesis-dialogs-overlays-solid
+  -
+    id: noesis-graph-on
+    title: Styled Graph View
+    description: Toggle custom noesis colors for the graph view.
+    type: class-toggle
+    default: true
+  -
+    id: noesis-canvas-on
+    title: Styled Canvas
+    description: Toggle custom noesis colors for canvas nodes and cards.
+    type: class-toggle
+    default: true

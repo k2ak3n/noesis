@@ -1,0 +1,39 @@
+/* Density */
+
+body.noesis-density-comfortable {
+  --noesis-density-mode: comfortable;
+}
+
+body.noesis-density-compact {
+  --heading-spacing: 1.2rem;
+  --p-spacing: 0.68rem;
+  --list-spacing: 0.1rem;
+  --line-height-normal: 1.45;
+  --line-height-tight: 1.22;
+  --metadata-gap: 3px;
+  --nav-item-padding: 2px 8px;
+  --noesis-tab-height: 34;
+  --noesis-tab-row-padding-y: -5;
+  --noesis-tab-surface-gap: 0;
+  --noesis-sidebar-item-tab-height: 24;
+  --noesis-sidebar-item-tab-gap: -4;
+  --noesis-sidebar-item-tab-padding-x: 6;
+  --noesis-stacked-font-size: 11;
+}
+
+body.noesis-density-compact .inline-title {
+  margin-bottom: 1rem;
+}
+
+body.noesis-density-compact .markdown-rendered :is(p, ul, ol, blockquote, pre, table) {
+  margin-block-start: 0.46rem;
+  margin-block-end: 0.46rem;
+}
+
+body.noesis-density-compact .metadata-container {
+  margin-block: 0.55rem 0.75rem;
+}
+
+body.noesis-density-compact :is(.callout, .search-result-file-match) {
+  margin-block: 0.7rem;
+}

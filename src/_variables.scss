@@ -1,0 +1,753 @@
+@use 'preset-groups' as presets;
+
+// The general theme compiles without HTB preset support. The HTB entry point
+// configures this flag before importing this shared token layer.
+$include-htb: false !default;
+$default-preset-selector: 'body';
+
+@if $include-htb {
+  $default-preset-selector: 'body.noesis-preset-default';
+}
+
+/* =========================================================
+   noesis 1.0.0
+
+   A quieter rebuild of the original theme:
+   01. Tokens and presets
+   02. Workspace chrome
+   03. Editor content
+   04. Styled elements
+   05. Integrated callout vocabulary
+   06. Graph, canvas, and supporting views
+   ========================================================= */
+body {
+  --font-interface-theme: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-text-theme: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --font-monospace-theme: "JetBrains Mono", "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+  --radius-s: 4px;
+  --radius-m: 6px;
+  --radius-l: 8px;
+  --radius-xl: 10px;
+  --button-radius: var(--radius-m);
+  --input-radius: var(--radius-m);
+  --checkbox-radius: 3px;
+  --modal-radius: 8px;
+  --noesis-table-radius: 8px;
+  // Semantic accent roles keep components consistent while allowing presets to tune their feel.
+  --noesis-accent: var(--noesis-current-accent);
+  --noesis-accent-hover: color-mix(in srgb, var(--noesis-accent) 86%, white);
+  --noesis-accent-soft: color-mix(in srgb, var(--noesis-accent) 14%, transparent);
+  --noesis-accent-subtle: color-mix(in srgb, var(--noesis-accent) 7%, transparent);
+  --noesis-accent-border: color-mix(in srgb, var(--noesis-accent) 50%, var(--background-modifier-border));
+  --noesis-accent-focus: color-mix(in srgb, var(--noesis-accent) 78%, var(--background-modifier-border));
+  --blockquote-border-color: var(--noesis-accent-border);
+  --blockquote-background-color: transparent;
+  --radius-pill: 999px;
+  --noesis-transition-fast: 120ms ease;
+  --noesis-transition-normal: 200ms ease;
+  --h1-size: var(--noesis-h1-size, 2em);
+  --h2-size: var(--noesis-h2-size, 1.58em);
+  --h3-size: var(--noesis-h3-size, 1.34em);
+  --h4-size: var(--noesis-h4-size, 1.18em);
+  --h5-size: var(--noesis-h5-size, 1.05em);
+  --h6-size: var(--noesis-h6-size, 1em);
+  --h1-weight: 700;
+  --h2-weight: 700;
+  --h3-weight: 600;
+  --h4-weight: 600;
+  --h5-weight: 600;
+  --h6-weight: 600;
+  --heading-spacing: 1.55rem;
+  --p-spacing: 0.85rem;
+  --noesis-space-2: 8px;
+  --noesis-border-thin: var(--noesis-border-width) solid var(--background-modifier-border);
+  --list-spacing: 0.18rem;
+  --list-bullet-size: 0.42em;
+  --noesis-heading-h1-color: #8b6fd6;
+  --noesis-heading-h2-color: #4f8cc9;
+  --noesis-heading-h3-color: #4f9b7c;
+  --noesis-heading-h4-color: #b27755;
+  --noesis-heading-h5-color: #a08845;
+  --noesis-heading-h6-color: #63758a;
+  --noesis-content-width: 1200;
+  --noesis-custom-content-width: 1200;
+  --noesis-tab-row-padding-y: -3;
+  --noesis-tab-height: 37;
+  --noesis-tab-default-height: 37;
+  --noesis-tab-surface-gap: 2;
+  --noesis-stacked-pane-width: 700;
+  --noesis-stacked-header-width: 42;
+  --noesis-stacked-font-size: 12;
+  --noesis-stacked-font-weight: 500;
+  --noesis-stacked-spine-order: row;
+  --noesis-sidebar-folder-weight: 500;
+  --noesis-sidebar-item-tab-height: 28;
+  --noesis-sidebar-item-tab-gap: -4;
+  --noesis-sidebar-item-tab-padding-x: 8;
+  --tab-stacked-pane-width: calc(var(--noesis-stacked-pane-width) * 1px);
+  --tab-stacked-header-width: calc(var(--noesis-stacked-header-width) * 1px);
+  --tab-stacked-font-size: calc(var(--noesis-stacked-font-size) * 1px);
+  --tab-stacked-font-weight: var(--noesis-stacked-font-weight);
+  --tab-stacked-text-align: center;
+  --tab-stacked-text-transform: none;
+  --tab-stacked-text-writing-mode: vertical-rl;
+  --tab-stacked-shadow: none;
+  --tab-stacked-spine-order: var(--noesis-stacked-spine-order);
+  --noesis-tab-height-lift: calc((var(--noesis-tab-default-height) - var(--noesis-tab-height)) * 1px);
+  --noesis-tab-row-y: calc((var(--noesis-tab-row-padding-y) * 1px) + var(--noesis-tab-height-lift));
+  --noesis-new-tab-y: calc(var(--noesis-tab-row-y) + 7px);
+  --noesis-border-width: 1px;
+  --noesis-window-control-space: 0px;
+  --noesis-current-accent: var(--color-accent);
+  --noesis-list-marker-color: var(--noesis-current-accent);
+  --noesis-highlight-bg: color-mix(in srgb, var(--noesis-current-accent) 24%, transparent);
+  --noesis-highlight-bg-active: color-mix(in srgb, var(--noesis-current-accent) 34%, transparent);
+  --noesis-selection-color: var(--noesis-current-accent);
+  --noesis-selection-strength: 28%;
+  --noesis-heading-h1-final: var(--noesis-current-accent);
+  --noesis-heading-h2-final: var(--noesis-current-accent);
+  --noesis-heading-h3-final: var(--noesis-current-accent);
+  --noesis-heading-h4-final: var(--noesis-current-accent);
+  --noesis-heading-h5-final: var(--noesis-current-accent);
+  --noesis-heading-h6-final: var(--noesis-current-accent);
+  --noesis-note-title-color: var(--color-accent, var(--interactive-accent, var(--noesis-current-accent)));
+  --noesis-tab-indicator: var(--noesis-current-accent);
+  --noesis-task-critical-color: #ea4458;
+  --noesis-task-high-color: #fd884b;
+  --noesis-task-medium-color: #f1c24d;
+  --noesis-task-low-color: #5cdf95;
+  --noesis-nav-hover-bg: var(--background-modifier-hover);
+  --noesis-nav-active-bg: var(--noesis-accent-soft);
+  --noesis-icon-file-text: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/%3E%3Cpath d='M14 2v6h6'/%3E%3Cpath d='M16 13H8'/%3E%3Cpath d='M16 17H8'/%3E%3Cpath d='M10 9H8'/%3E%3C/svg%3E");
+  --noesis-icon-folder: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.5a2 2 0 0 1-1.6-.8L9.6 3.6A2 2 0 0 0 8 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2z'/%3E%3C/svg%3E");
+  --noesis-icon-folder-open: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 14 1.45-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.8 2.9l-2.3 4.6A2 2 0 0 1 17.7 19H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.93l.81 1.14A2 2 0 0 0 12.09 6H18a2 2 0 0 1 2 2v2'/%3E%3C/svg%3E");
+  --noesis-view-header-divider-on: 1px solid var(--background-modifier-border);
+  --noesis-view-header-divider-off: 0 solid transparent;
+  --noesis-view-header-divider: var(--noesis-view-header-divider-off);
+  --noesis-top-chrome-height: var(--header-height, 40px);
+  --noesis-tab-content-bg: var(--background-primary);
+  --noesis-tab-strip-bg: var(--noesis-tab-strip-bg-base, var(--background-secondary));
+  --noesis-tab-strip-border: var(--background-modifier-border);
+  --noesis-tab-active-bg: var(--background-primary);
+  --noesis-line-tabs-ribbon-surface-bleed: 6px;
+  --noesis-line-tabs-ribbon-active-bg: color-mix(in srgb, var(--background-modifier-hover) 78%, transparent);
+  --noesis-tab-inactive-bg: var(--noesis-tab-strip-bg);
+  --noesis-tab-hover-bg: color-mix(in srgb, var(--background-secondary) 78%, var(--background-modifier-hover));
+  --noesis-tab-active-border: var(--noesis-accent-border);
+  --noesis-sidebar-active-bg: color-mix(in srgb, var(--noesis-tab-active-bg) 86%, var(--noesis-tab-indicator) 14%);
+  --noesis-sidebar-active-border: var(--noesis-accent-border);
+  --nav-item-color-hover: var(--noesis-current-accent);
+  --noesis-divider-accent: color-mix(in srgb, var(--noesis-tab-indicator) 78%, var(--background-modifier-border));
+  --divider-color-hover: var(--noesis-divider-accent);
+  --background-modifier-border-focus: var(--noesis-accent-focus);
+  --noesis-tab-text: var(--text-muted);
+  --noesis-tab-text-active: var(--text-normal);
+  --noesis-tab-active-font-weight: inherit;
+  --noesis-tab-title-line-height: 1.2;
+  --list-marker-color: color-mix(in srgb, var(--noesis-list-marker-color) 86%, var(--text-normal));
+  --list-marker-color-hover: var(--noesis-list-marker-color);
+  --list-marker-color-collapsed: var(--noesis-list-marker-color);
+}
+
+body.noesis-preset-default {
+  --noesis-visual-preset: default;
+}
+
+body.theme-dark {
+  color-scheme: dark;
+  --noesis-bg: #121212;
+  --noesis-bg-elevated: #181818;
+  --noesis-border: rgba(220, 220, 220, 0.14);
+  --noesis-border-strong: rgba(220, 220, 220, 0.23);
+  --noesis-text: #d9dee7;
+  --noesis-muted: #9aa5b4;
+  --noesis-faint: #737f8f;
+  --noesis-selection: rgba(116, 160, 215, 0.28);
+  --noesis-selection-strength: 30%;
+  --noesis-preset-accent: #7fb59a;
+  --noesis-preset-accent-rgb: 127, 181, 154;
+  --noesis-preset-title: var(--noesis-preset-accent);
+  --noesis-preset-h1: #a98fda;
+  --noesis-preset-h2: #75a7d4;
+  --noesis-preset-h3: #7fb59a;
+  --noesis-preset-h4: #d29a75;
+  --noesis-preset-h5: #c5b46f;
+  --noesis-preset-h6: #8ea7c0;
+  --noesis-code-bg: #151515;
+  --noesis-code-inline-color: var(--noesis-current-accent);
+  --noesis-code-inline-strength: 14%;
+  --noesis-code-inline-bg: color-mix(in srgb, var(--noesis-code-inline-color) var(--noesis-code-inline-strength), transparent);
+  --noesis-codeblock-bg: #151515;
+  --noesis-codeblock-border-strength: 35%;
+  --noesis-codeblock-border: color-mix(in srgb, var(--noesis-code-inline-color) var(--noesis-codeblock-border-strength), transparent);
+  --noesis-codeblock-text: var(--code-normal);
+  --background-primary: var(--noesis-bg);
+  --background-primary-alt: #161616;
+  --background-secondary: #181818;
+  --background-secondary-alt: #202020;
+  --background-modifier-border: var(--noesis-border);
+  --background-modifier-border-hover: var(--noesis-border-strong);
+  --background-modifier-hover: rgba(148, 163, 184, 0.10);
+  --background-modifier-active-hover: rgba(148, 163, 184, 0.14);
+  --background-modifier-form-field: #171717;
+  --text-normal: var(--noesis-text);
+  --text-muted: var(--noesis-muted);
+  --text-faint: var(--noesis-faint);
+  --text-selection: var(--noesis-selection);
+  --text-highlight-bg: var(--noesis-highlight-bg);
+  --divider-color: var(--noesis-border);
+  --noesis-tab-strip-bg-base: var(--background-secondary);
+  --titlebar-background: var(--background-secondary);
+  --titlebar-background-focused: var(--background-secondary);
+  --code-normal: #d5dde8;
+  --code-comment: #7d8793;
+  --code-function: color-mix(in srgb, var(--noesis-current-accent) 26%, #64b5f6);
+  --code-important: color-mix(in srgb, var(--noesis-current-accent) 18%, #d36086);
+  --code-keyword: color-mix(in srgb, var(--noesis-current-accent) 42%, #7aa2f7);
+  --code-operator: color-mix(in srgb, var(--noesis-current-accent) 22%, #aa759f);
+  --code-property: color-mix(in srgb, var(--noesis-current-accent) 16%, #9cdcfe);
+  --code-punctuation: #a8adb3;
+  --code-string: color-mix(in srgb, var(--noesis-current-accent) 18%, #98c379);
+  --code-tag: color-mix(in srgb, var(--noesis-current-accent) 42%, #7aa2f7);
+  --code-value: color-mix(in srgb, var(--noesis-current-accent) 18%, #b5cea8);
+  --code-attribute: color-mix(in srgb, var(--noesis-current-accent) 18%, #f4bf75);
+  --code-func-name: color-mix(in srgb, var(--noesis-current-accent) 30%, #dcdcaa);
+  --noesis-table-header-bg: #202020;
+  --noesis-table-row-alt-bg: rgba(148, 163, 184, 0.045);
+  --canvas-background: #121212;
+}
+
+body.theme-light {
+  color-scheme: light;
+  --noesis-bg: #ffffff;
+  --noesis-bg-elevated: #f5f5f7;
+  --noesis-border: rgba(39, 39, 42, 0.14);
+  --noesis-border-strong: rgba(39, 39, 42, 0.23);
+  --noesis-text: #222936;
+  --noesis-muted: #5e687a;
+  --noesis-faint: #7b8495;
+  --noesis-selection: rgba(65, 111, 164, 0.20);
+  --noesis-selection-strength: 22%;
+  --noesis-preset-accent: #56785f;
+  --noesis-preset-accent-rgb: 86, 120, 95;
+  --noesis-preset-title: var(--noesis-preset-accent);
+  --noesis-preset-h1: #7359a6;
+  --noesis-preset-h2: #3f719f;
+  --noesis-preset-h3: #4c8468;
+  --noesis-preset-h4: #9b684a;
+  --noesis-preset-h5: #837339;
+  --noesis-preset-h6: #5e7288;
+  --noesis-code-bg: #f0f2f5;
+  --noesis-code-inline-color: var(--noesis-current-accent);
+  --noesis-code-inline-strength: 12%;
+  --noesis-code-inline-bg: color-mix(in srgb, var(--noesis-code-inline-color) var(--noesis-code-inline-strength), transparent);
+  --noesis-codeblock-bg: #f0f2f5;
+  --noesis-codeblock-border-strength: 36%;
+  --noesis-codeblock-border: color-mix(in srgb, var(--noesis-code-inline-color) var(--noesis-codeblock-border-strength), transparent);
+  --noesis-codeblock-text: #24253b;
+  --noesis-task-critical-color: #eb455a;
+  --noesis-task-high-color: #fe8e4d;
+  --noesis-task-medium-color: #f4c851;
+  --noesis-task-low-color: #60e599;
+  --background-primary: var(--noesis-bg);
+  --background-primary-alt: #ffffff;
+  --background-secondary: #f5f5f7;
+  --background-secondary-alt: #ffffff;
+  --background-modifier-border: var(--noesis-border);
+  --background-modifier-border-hover: var(--noesis-border-strong);
+  --background-modifier-hover: rgba(31, 41, 55, 0.06);
+  --background-modifier-active-hover: rgba(31, 41, 55, 0.09);
+  --background-modifier-form-field: #f2f2f7;
+  --text-normal: var(--noesis-text);
+  --text-muted: var(--noesis-muted);
+  --text-faint: var(--noesis-faint);
+  --text-selection: var(--noesis-selection);
+  --text-highlight-bg: var(--noesis-highlight-bg);
+  --divider-color: var(--noesis-border);
+  --noesis-tab-strip-bg-base: var(--background-secondary);
+  --titlebar-background: var(--background-secondary);
+  --titlebar-background-focused: var(--background-secondary);
+  --code-normal: #273244;
+  --code-comment: #6e7781;
+  --code-function: color-mix(in srgb, var(--noesis-current-accent) 24%, #0550ae);
+  --code-important: color-mix(in srgb, var(--noesis-current-accent) 16%, #cf222e);
+  --code-keyword: color-mix(in srgb, var(--noesis-current-accent) 28%, #8a2be2);
+  --code-operator: color-mix(in srgb, var(--noesis-current-accent) 20%, #8250df);
+  --code-property: color-mix(in srgb, var(--noesis-current-accent) 14%, #0550ae);
+  --code-punctuation: #57606a;
+  --code-string: color-mix(in srgb, var(--noesis-current-accent) 16%, #116329);
+  --code-tag: color-mix(in srgb, var(--noesis-current-accent) 26%, #0550ae);
+  --code-value: color-mix(in srgb, var(--noesis-current-accent) 14%, #0550ae);
+  --code-attribute: color-mix(in srgb, var(--noesis-current-accent) 16%, #953800);
+  --code-func-name: color-mix(in srgb, var(--noesis-current-accent) 22%, #8250df);
+  --noesis-table-header-bg: #f5f5f7;
+  --noesis-table-row-alt-bg: rgba(31, 41, 55, 0.035);
+  --canvas-background: #ffffff;
+}
+
+
+
+
+
+body.noesis-codebox-on {
+  --code-background: var(--noesis-code-bg);
+}
+
+@if $include-htb {
+body.noesis-syntax-vscode.theme-dark {
+  --code-normal: #d4d4d4;
+  --code-comment: #6a9955;
+  --code-function: #dcdcaa;
+  --code-important: #c586c0;
+  --code-keyword: #569cd6;
+  --code-operator: #c586c0;
+  --code-property: #9cdcfe;
+  --code-punctuation: #d4d4d4;
+  --code-string: #ce9178;
+  --code-tag: #569cd6;
+  --code-value: #b5cea8;
+  --code-attribute: #9cdcfe;
+  --code-func-name: #dcdcaa;
+  --noesis-codeblock-text: var(--code-normal);
+}
+
+body.noesis-syntax-vscode.theme-light {
+  --code-normal: #1f2328;
+  --code-comment: #008000;
+  --code-function: #795e26;
+  --code-important: #af00db;
+  --code-keyword: #0000ff;
+  --code-operator: #af00db;
+  --code-property: #001080;
+  --code-punctuation: #393a34;
+  --code-string: #a31515;
+  --code-tag: #800000;
+  --code-value: #098658;
+  --code-attribute: #ff0000;
+  --code-func-name: #795e26;
+  --noesis-codeblock-text: var(--code-normal);
+}
+
+body.noesis-syntax-one-dark.theme-dark {
+  --code-normal: #abb2bf;
+  --code-comment: #5c6370;
+  --code-function: #61afef;
+  --code-important: #e06c75;
+  --code-keyword: #c678dd;
+  --code-operator: #56b6c2;
+  --code-property: #e5c07b;
+  --code-punctuation: #abb2bf;
+  --code-string: #98c379;
+  --code-tag: #e06c75;
+  --code-value: #d19a66;
+  --code-attribute: #d19a66;
+  --code-func-name: #61afef;
+  --noesis-codeblock-text: var(--code-normal);
+}
+
+body.noesis-syntax-one-dark.theme-light {
+  --code-normal: #383a42;
+  --code-comment: #a0a1a7;
+  --code-function: #4078f2;
+  --code-important: #e45649;
+  --code-keyword: #a626a4;
+  --code-operator: #0184bc;
+  --code-property: #c18401;
+  --code-punctuation: #383a42;
+  --code-string: #50a14f;
+  --code-tag: #e45649;
+  --code-value: #986801;
+  --code-attribute: #986801;
+  --code-func-name: #4078f2;
+  --noesis-codeblock-text: var(--code-normal);
+}
+
+body.noesis-syntax-solarized.theme-dark {
+  --code-normal: #839496;
+  --code-comment: #586e75;
+  --code-function: #268bd2;
+  --code-important: #dc322f;
+  --code-keyword: #859900;
+  --code-operator: #6c71c4;
+  --code-property: #b58900;
+  --code-punctuation: #93a1a1;
+  --code-string: #2aa198;
+  --code-tag: #268bd2;
+  --code-value: #d33682;
+  --code-attribute: #cb4b16;
+  --code-func-name: #268bd2;
+  --noesis-codeblock-text: var(--code-normal);
+}
+
+body.noesis-syntax-solarized.theme-light {
+  --code-normal: #657b83;
+  --code-comment: #93a1a1;
+  --code-function: #268bd2;
+  --code-important: #dc322f;
+  --code-keyword: #859900;
+  --code-operator: #6c71c4;
+  --code-property: #b58900;
+  --code-punctuation: #586e75;
+  --code-string: #2aa198;
+  --code-tag: #268bd2;
+  --code-value: #d33682;
+  --code-attribute: #cb4b16;
+  --code-func-name: #268bd2;
+  --noesis-codeblock-text: var(--code-normal);
+}
+
+body.noesis-syntax-htb.theme-dark,
+body.noesis-syntax-htb.theme-light {
+  --code-normal: #babed8;
+  --code-comment: #464B5D;
+  --code-function: #FFCB6B;
+  --code-important: #F78C6C;
+  --code-keyword: #89DDFF;
+  --code-operator: #89DDFF;
+  --code-property: #f07178;
+  --code-punctuation: #89DDFF;
+  --code-string: #C3E88D;
+  --code-tag: #f07178;
+  --code-value: #89DDFF;
+  --code-attribute: #C792EA;
+  --code-func-name: #82AAFF;
+  --noesis-codeblock-text: var(--code-normal);
+  --noesis-code-inline-color: #5E94F3;
+  --noesis-code-inline-bg: color-mix(in srgb, #5E94F3 var(--noesis-code-inline-strength), transparent);
+}
+}
+
+@if $include-htb {
+body.noesis-code-contrast-soft.theme-dark {
+  --noesis-code-inline-strength: 9%;
+  --noesis-code-inline-bg: color-mix(in srgb, var(--noesis-code-inline-color) 9%, transparent);
+  --noesis-codeblock-bg: color-mix(in srgb, var(--background-primary) 88%, black);
+  --noesis-codeblock-border: color-mix(in srgb, var(--noesis-code-inline-color) 22%, transparent);
+}
+
+body.noesis-code-contrast-soft.theme-light {
+  --noesis-code-inline-strength: 8%;
+  --noesis-code-inline-bg: color-mix(in srgb, var(--noesis-code-inline-color) 8%, transparent);
+  --noesis-codeblock-bg: #f3f6fa;
+  --noesis-codeblock-border: color-mix(in srgb, var(--noesis-code-inline-color) 18%, transparent);
+}
+
+body.noesis-code-contrast-strong.theme-dark {
+  --noesis-code-inline-strength: 20%;
+  --noesis-code-inline-bg: color-mix(in srgb, var(--noesis-code-inline-color) 20%, transparent);
+  --noesis-codeblock-bg: #0b0f14;
+  --noesis-codeblock-border: color-mix(in srgb, var(--noesis-code-inline-color) 48%, transparent);
+}
+
+body.noesis-code-contrast-strong.theme-light {
+  --noesis-code-inline-strength: 17%;
+  --noesis-code-inline-bg: color-mix(in srgb, var(--noesis-code-inline-color) 17%, transparent);
+  --noesis-codeblock-bg: #e6ebf2;
+  --noesis-codeblock-border: color-mix(in srgb, var(--noesis-code-inline-color) 40%, transparent);
+}
+}
+
+@if $include-htb {
+body:is(.theme-dark, .theme-light).noesis-preset-htb {
+  color-scheme: dark;
+  --noesis-htb-canvas: #101927;
+  --noesis-htb-elevated: #151F2E;
+  --noesis-htb-chrome: #111927;
+  --noesis-htb-border: #313f55;
+  --noesis-htb-text: #a4b1cd;
+  --noesis-htb-muted: #7d8ba8;
+  --noesis-htb-accent: #9fef00;
+  --noesis-htb-accent-hover: #c5f467;
+  --noesis-htb-inline-code: #5E94F3;
+  --noesis-bg: var(--noesis-htb-canvas);
+  --noesis-bg-elevated: var(--noesis-htb-elevated);
+  --noesis-border: var(--noesis-htb-border);
+  --noesis-border-strong: var(--noesis-htb-muted);
+  --noesis-text: var(--noesis-htb-text);
+  --noesis-muted: var(--noesis-htb-muted);
+  --noesis-faint: var(--noesis-htb-border);
+  --noesis-highlight-bg: var(--noesis-htb-border);
+  --noesis-highlight-bg-active: #7d8ba88c;
+  --noesis-view-header-divider-on: 1px solid var(--noesis-htb-border);
+  --noesis-preset-accent: var(--noesis-htb-accent);
+  --noesis-preset-accent-rgb: 159, 239, 0;
+  --noesis-current-accent: var(--noesis-preset-accent);
+  --noesis-preset-title: var(--noesis-preset-accent);
+  --noesis-note-title-color: var(--noesis-preset-title);
+  --noesis-preset-h1: var(--noesis-htb-accent-hover);
+  --noesis-preset-h2: var(--noesis-htb-accent-hover);
+  --noesis-preset-h3: var(--noesis-htb-accent-hover);
+  --noesis-preset-h4: var(--noesis-htb-accent-hover);
+  --noesis-preset-h5: var(--noesis-htb-accent-hover);
+  --noesis-preset-h6: var(--noesis-htb-accent-hover);
+  --noesis-tab-indicator: var(--noesis-preset-accent);
+  --noesis-nav-hover-bg: var(--noesis-htb-elevated);
+  --noesis-nav-active-bg: var(--noesis-sidebar-active-bg);
+  --noesis-sidebar-active-bg: #242F40;
+  --noesis-code-bg: var(--noesis-htb-chrome);
+  --noesis-code-inline-color: var(--noesis-htb-inline-code);
+  --noesis-code-inline-strength: 18%;
+  --noesis-code-inline-bg: #1E2939;
+  --noesis-codeblock-bg: #0F111A;
+  --noesis-codeblock-border: var(--noesis-htb-border);
+  --noesis-codeblock-text: #babed8;
+  --noesis-table-header-bg: var(--noesis-htb-elevated);
+  --noesis-table-row-alt-bg: rgba(49, 63, 85, 0.22);
+  --background-primary: var(--noesis-htb-canvas);
+  --background-primary-alt: var(--noesis-htb-canvas);
+  --background-secondary: var(--noesis-htb-elevated);
+  --background-secondary-alt: var(--noesis-htb-canvas);
+  --background-modifier-border: var(--noesis-htb-border);
+  --background-modifier-border-hover: var(--noesis-htb-muted);
+  --background-modifier-hover: var(--noesis-htb-elevated);
+  --background-modifier-active-hover: var(--noesis-htb-border);
+  --background-modifier-form-field: var(--noesis-htb-canvas);
+  --background-modifier-border-focus: var(--noesis-htb-muted);
+  --background-modifier-box-shadow: rgba(17, 25, 39, 0.48);
+  --background-modifier-cover: rgba(17, 25, 39, 0.72);
+  --background-modifier-error: rgba(255, 62, 62, 0.44);
+  --background-modifier-error-hover: rgba(255, 62, 62, 0.56);
+  --background-modifier-warning: rgba(255, 175, 0, 0.42);
+  --background-modifier-success: rgba(159, 239, 0, 0.24);
+  --text-normal: var(--noesis-htb-text);
+  --text-muted: var(--noesis-htb-muted);
+  --text-faint: var(--noesis-htb-border);
+  --text-highlight-bg: var(--noesis-htb-border);
+  --text-highlight-bg-active: #7d8ba88c;
+  --text-on-accent: var(--noesis-htb-canvas);
+  --text-error: #ff8484;
+  --text-error-hover: #ff3e3e;
+  --text-warning: #ffcc5c;
+  --text-success: var(--noesis-preset-accent);
+  --link-external-color: #5cb2ff;
+  --link-color: var(--noesis-preset-accent);
+  --link-color-hover: var(--noesis-htb-accent-hover);
+  --text-accent-hover: var(--noesis-htb-accent-hover);
+  --tag-color: var(--noesis-htb-accent-hover);
+  --blockquote-border-color: #2E3A4B;
+  --blockquote-background-color: #1E2939;
+  --interactive-normal: var(--noesis-htb-canvas);
+  --interactive-hover: var(--noesis-htb-elevated);
+  --interactive-accent: var(--noesis-preset-accent);
+  --interactive-accent-hover: var(--noesis-htb-accent-hover);
+  --nav-item-color: var(--noesis-htb-text);
+  --nav-item-color-active: var(--noesis-htb-text);
+  --nav-item-background-hover: var(--noesis-htb-elevated);
+  --nav-item-background-active: var(--noesis-sidebar-active-bg);
+  --icon-color: var(--noesis-htb-text);
+  --icon-color-hover: #ffffff;
+  --icon-color-active: var(--noesis-preset-accent);
+  --icon-color-focused: var(--noesis-preset-accent);
+  --checkbox-color: var(--noesis-htb-canvas);
+  --checkbox-color-hover: var(--noesis-htb-elevated);
+  --checkbox-border-color: var(--noesis-htb-canvas);
+  --checkbox-border-color-hover: var(--noesis-preset-accent);
+  --checkbox-marker-color: var(--noesis-preset-accent);
+  --indentation-guide-color: var(--noesis-htb-border);
+  --indentation-guide-color-active: var(--noesis-htb-text);
+  --divider-color: var(--noesis-htb-border);
+  --noesis-tab-strip-bg-base: var(--background-secondary);
+  --tab-container-background: var(--background-secondary);
+  --tab-text-color: var(--noesis-htb-muted);
+  --tab-text-color-focused: var(--noesis-htb-text);
+  --tab-text-color-active: #ffffff;
+  --tab-outline-color: var(--noesis-htb-border);
+  --tab-background-active: var(--background-primary);
+  --tab-background-inactive: var(--background-secondary);
+  --tab-divider-color: var(--background-secondary);
+  --status-bar-background: var(--noesis-htb-elevated);
+  --status-bar-text-color: var(--noesis-htb-text);
+  --titlebar-background: var(--background-secondary);
+  --titlebar-background-focused: var(--background-secondary);
+  --canvas-background: var(--noesis-htb-canvas);
+  --scrollbar-thumb-bg: #7d8ba88c;
+  --scrollbar-active-thumb-bg: #7d8ba88c;
+  --code-background: var(--noesis-htb-chrome);
+  --code-normal: #babed8;
+  --code-comment: #464B5D;
+  --code-function: #FFCB6B;
+  --code-important: #F78C6C;
+  --code-keyword: #89DDFF;
+  --code-operator: #89DDFF;
+  --code-property: #f07178;
+  --code-punctuation: #89DDFF;
+  --code-string: #C3E88D;
+  --code-tag: #f07178;
+  --code-value: #89DDFF;
+  --code-attribute: #C792EA;
+  --code-func-name: #82AAFF;
+  --color-red: #ff3e3e;
+  --color-red-rgb: 255, 62, 62;
+  --color-orange: #ffaf00;
+  --color-orange-rgb: 255, 175, 0;
+  --color-yellow: #ffcc5c;
+  --color-yellow-rgb: 255, 204, 92;
+  --color-green: #9fef00;
+  --color-green-rgb: 159, 239, 0;
+  --color-cyan: #5cecc6;
+  --color-cyan-rgb: 92, 236, 198;
+  --color-blue: #5cb2ff;
+  --color-blue-rgb: 92, 178, 255;
+  --color-purple: #cf8dfb;
+  --color-purple-rgb: 207, 141, 251;
+  --color-pink: #ff8484;
+  --color-pink-rgb: 255, 132, 132;
+}
+
+body.theme-dark.noesis-preset-htb {
+  --noesis-selection: #0F3B71;
+  --noesis-selection-color: #0F3B71;
+  --noesis-selection-strength: 100%;
+  --text-selection: #0F3B71;
+  --canvas-background: var(--background-primary);
+}
+
+body.theme-light.noesis-preset-htb {
+  --noesis-selection: #0F3B71;
+  --noesis-selection-color: #0F3B71;
+  --noesis-selection-strength: 100%;
+  --text-selection: #0F3B71;
+  --canvas-background: var(--background-primary);
+}
+}
+
+body {
+  --noesis-current-accent: var(--color-accent);
+  --interactive-accent: var(--noesis-accent);
+  --interactive-accent-hover: var(--noesis-accent-hover);
+  --text-accent: var(--noesis-accent);
+  --text-accent-hover: color-mix(in srgb, var(--noesis-accent) 82%, var(--text-normal));
+  --link-color: var(--noesis-accent);
+  --link-color-hover: color-mix(in srgb, var(--noesis-accent) 78%, var(--text-normal));
+  --link-external-color: color-mix(in srgb, var(--noesis-accent) 72%, #4f8cc9);
+  --tag-color: color-mix(in srgb, var(--noesis-accent) 78%, var(--text-normal));
+  --tag-background: var(--noesis-accent-subtle);
+  --tag-background-hover: var(--noesis-accent-soft);
+  --blockquote-border-color: var(--noesis-blockquote-border-color, var(--noesis-accent-border));
+  --blockquote-background-color: var(--noesis-accent-subtle);
+  --h1-color: var(--noesis-heading-h1-final);
+  --h2-color: var(--noesis-heading-h2-final);
+  --h3-color: var(--noesis-heading-h3-final);
+  --h4-color: var(--noesis-heading-h4-final);
+  --h5-color: var(--noesis-heading-h5-final);
+  --h6-color: var(--noesis-heading-h6-final);
+}
+
+
+body.theme-dark,
+body.theme-light {
+  --noesis-selection: color-mix(in srgb, var(--noesis-selection-color, var(--noesis-current-accent)) var(--noesis-selection-strength, 28%), transparent);
+  --text-selection: var(--noesis-selection);
+  --text-highlight-bg: var(--noesis-highlight-bg);
+}
+
+body.theme-dark ::selection,
+body.theme-light ::selection {
+  background: var(--text-selection) !important;
+  color: inherit;
+}
+
+body.theme-dark .cm-editor .cm-selectionBackground,
+body.theme-light .cm-editor .cm-selectionBackground,
+body.theme-dark .cm-editor.cm-focused .cm-selectionBackground,
+body.theme-light .cm-editor.cm-focused .cm-selectionBackground,
+body.theme-dark .markdown-source-view.mod-cm6 .cm-selectionLayer .cm-selectionBackground,
+body.theme-light .markdown-source-view.mod-cm6 .cm-selectionLayer .cm-selectionBackground {
+  background: var(--text-selection) !important;
+}
+
+@if $include-htb {
+body.noesis-preset-htb ::selection {
+  color: #fff !important;
+}
+}
+
+@if $include-htb {
+body.noesis-preset-htb {
+  --noesis-code-inline-color: #5E94F3;
+  --noesis-code-inline-bg: color-mix(in srgb, #5E94F3 var(--noesis-code-inline-strength), transparent);
+  --tag-color: var(--noesis-code-inline-color);
+  --noesis-note-title-color: var(--text-normal);
+  --noesis-list-marker-color: var(--text-normal);
+  --list-marker-color: var(--text-normal);
+  --list-marker-color-hover: var(--text-normal);
+  --list-marker-color-collapsed: var(--text-normal);
+  --noesis-sidebar-active-border: color-mix(in srgb, #5cb2ff 58%, #313f55);
+  --noesis-tab-hover-bg: var(--background-modifier-hover);
+}
+
+body.noesis-preset-htb :is(.tag, .cm-hashtag, .metadata-property .multi-select-pill) {
+  border-color: color-mix(in srgb, var(--noesis-code-inline-color) 28%, transparent) !important;
+  background: var(--noesis-code-inline-bg) !important;
+  color: var(--noesis-code-inline-color) !important;
+}
+
+body.noesis-preset-htb :is(.tag, .cm-hashtag, .metadata-property .multi-select-pill):is(:hover, :focus-visible) {
+  border-color: color-mix(in srgb, var(--noesis-code-inline-color) 28%, transparent) !important;
+  background: var(--noesis-code-inline-bg) !important;
+}
+
+body.noesis-preset-htb .metadata-property .multi-select-pill :is(.multi-select-pill-remove-button, .clickable-icon, button) {
+  --icon-color: var(--noesis-code-inline-color) !important;
+  color: var(--noesis-code-inline-color) !important;
+}
+
+body.noesis-preset-htb .metadata-property .multi-select-pill :is(.multi-select-pill-remove-button, .clickable-icon, button) :is(svg, .svg-icon) * {
+  stroke: currentColor !important;
+}
+}
+
+body.noesis-syntax-accent {
+  --noesis-code-inline-color: var(--noesis-current-accent);
+  --noesis-code-inline-bg: color-mix(in srgb, var(--noesis-code-inline-color) var(--noesis-code-inline-strength), transparent);
+}
+
+body.noesis-code-contrast-balanced {
+  --noesis-code-contrast-mode: balanced;
+}
+body.noesis-headings-preset {
+  --noesis-heading-h1-final: var(--noesis-preset-h1);
+  --noesis-heading-h2-final: var(--noesis-preset-h2);
+  --noesis-heading-h3-final: var(--noesis-preset-h3);
+  --noesis-heading-h4-final: var(--noesis-preset-h4);
+  --noesis-heading-h5-final: var(--noesis-preset-h5);
+  --noesis-heading-h6-final: var(--noesis-preset-h6);
+}
+
+body.noesis-headings-preset-accent {
+  --noesis-heading-h1-final: var(--noesis-current-accent);
+  --noesis-heading-h2-final: var(--noesis-current-accent);
+  --noesis-heading-h3-final: var(--noesis-current-accent);
+  --noesis-heading-h4-final: var(--noesis-current-accent);
+  --noesis-heading-h5-final: var(--noesis-current-accent);
+  --noesis-heading-h6-final: var(--noesis-current-accent);
+}
+
+body.noesis-headings-default {
+  --noesis-heading-h1-final: var(--text-normal);
+  --noesis-heading-h2-final: var(--text-normal);
+  --noesis-heading-h3-final: var(--text-normal);
+  --noesis-heading-h4-final: var(--text-normal);
+  --noesis-heading-h5-final: var(--text-muted);
+  --noesis-heading-h6-final: var(--text-muted);
+}
+
+body.noesis-headings-custom-levels {
+  --noesis-heading-h1-final: var(--noesis-heading-h1-color);
+  --noesis-heading-h2-final: var(--noesis-heading-h2-color);
+  --noesis-heading-h3-final: var(--noesis-heading-h3-color);
+  --noesis-heading-h4-final: var(--noesis-heading-h4-color);
+  --noesis-heading-h5-final: var(--noesis-heading-h5-color);
+  --noesis-heading-h6-final: var(--noesis-heading-h6-color);
+}
+
+@if $include-htb {
+body.noesis-preset-htb {
+  --noesis-heading-h1-final: var(--text-normal);
+  --noesis-heading-h2-final: var(--text-normal);
+  --noesis-heading-h3-final: var(--text-normal);
+  --noesis-heading-h4-final: var(--text-normal);
+  --noesis-heading-h5-final: var(--text-normal);
+  --noesis-heading-h6-final: var(--text-normal);
+}
+}
