@@ -2,5 +2,6 @@
     "name":  "noesis",
     "version":  "1.0.0",
     "minAppVersion":  "1.13.0",
-    "author":  "k2ak3n"
+    "author":  "k2ak3n",
+    "authorUrl":  "https://github.com/k2ak3n"
 }
