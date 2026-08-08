@@ -10,10 +10,10 @@ body:is(.noesis-reading-custom, .noesis-reading-wide, .noesis-reading-book, .noe
 body:is(.noesis-reading-custom, .noesis-reading-wide, .noesis-reading-book, .noesis-reading-academic) .markdown-preview-view .markdown-preview-sizer,
 body:is(.noesis-reading-custom, .noesis-reading-wide, .noesis-reading-book, .noesis-reading-academic) .markdown-source-view.mod-cm6 .cm-content,
 body:is(.noesis-reading-custom, .noesis-reading-wide, .noesis-reading-book, .noesis-reading-academic) :is(.markdown-preview-view, .markdown-source-view.mod-cm6) .inline-title {
-  width: min(var(--noesis-content-width) * 1px, 100%) !important;
-  max-width: min(var(--noesis-content-width) * 1px, 100%) !important;
-  margin-inline: auto !important;
-  box-sizing: border-box !important;
+  width: min(var(--noesis-content-width) * 1px, 100%);
+  max-width: min(var(--noesis-content-width) * 1px, 100%);
+  margin-inline: auto;
+  box-sizing: border-box;
 }
 
 .inline-title {
@@ -25,7 +25,7 @@ body:is(.noesis-reading-custom, .noesis-reading-wide, .noesis-reading-book, .noe
 
 @if $include-htb {
 body.noesis-preset-htb .inline-title {
-  color: var(--text-normal) !important;
+  color: var(--text-normal);
 }
 }
 
@@ -49,11 +49,11 @@ body.noesis-preset-htb .inline-title {
 .markdown-source-view.mod-cm6 .HyperMD-list-line:not(.HyperMD-task-line) .cm-formatting-list,
 .markdown-source-view.mod-cm6 .cm-line:not(.HyperMD-task-line) :is(.cm-formatting-list, .cm-formatting-list-ul, .cm-formatting-list-ol),
 .markdown-source-view.mod-cm6 .cm-line:not(.HyperMD-task-line) .list-bullet::after {
-  color: var(--list-marker-color) !important;
+  color: var(--list-marker-color);
 }
 
 .markdown-source-view.mod-cm6 .cm-line:not(.HyperMD-task-line) .list-bullet::after {
-  background-color: var(--list-marker-color) !important;
+  background-color: var(--list-marker-color);
 }
 
 .markdown-rendered h1,
@@ -121,7 +121,6 @@ body.noesis-heading-outline .markdown-source-view.mod-cm6 .cm-line.HyperMD-heade
 .markdown-rendered a,
 .cm-hmd-internal-link,
 .cm-link {
-  text-decoration-thickness: 1px;
   text-underline-offset: 0.18em;
   transition: color var(--noesis-transition-fast), text-decoration-color var(--noesis-transition-fast);
 }
@@ -129,7 +128,7 @@ body.noesis-heading-outline .markdown-source-view.mod-cm6 .cm-line.HyperMD-heade
 .markdown-rendered a:hover,
 .cm-hmd-internal-link:hover,
 .cm-link:hover {
-  color: var(--link-color-hover) !important;
+  color: var(--link-color-hover);
 }
 
 .markdown-rendered mark,
@@ -142,7 +141,7 @@ body.noesis-heading-outline .markdown-source-view.mod-cm6 .cm-line.HyperMD-heade
 
 .markdown-rendered :is(.is-flashing, .mod-highlighted),
 .markdown-source-view.mod-cm6 :is(.is-flashing, .mod-highlighted) {
-  background-color: var(--noesis-highlight-bg-active) !important;
+  background-color: var(--noesis-highlight-bg-active);
   color: inherit;
 }
 
@@ -172,16 +171,16 @@ body.noesis-codebox-on .cm-inline-code,
 body.noesis-codebox-on .markdown-source-view.mod-cm6 span.cm-inline-code {
   border: 1px solid color-mix(in srgb, var(--noesis-code-inline-color) 28%, transparent);
   border-radius: var(--radius-s);
-  background: var(--noesis-code-inline-bg) !important;
-  color: var(--noesis-code-inline-color) !important;
+  background: var(--noesis-code-inline-bg);
+  color: var(--noesis-code-inline-color);
   font-size: 0.9em;
-  padding: 0.05em 0.28em !important;
+  padding: 0.05em 0.28em;
 }
 
 body.noesis-codebox-on .markdown-rendered pre,
 body.noesis-codebox-on .markdown-rendered pre code {
-  background-color: var(--noesis-codeblock-bg) !important;
-  color: var(--noesis-codeblock-text) !important;
+  background-color: var(--noesis-codeblock-bg);
+  color: var(--noesis-codeblock-text);
 }
 
 body.noesis-codebox-on .markdown-rendered pre {
@@ -209,35 +208,35 @@ body.noesis-codebox-on .markdown-source-view.mod-cm6 .HyperMD-codeblock,
 body.noesis-codebox-on .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock,
 body.noesis-codebox-on .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-begin,
 body.noesis-codebox-on .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-end {
-  background-color: var(--noesis-codeblock-bg) !important;
-  background-image: none !important;
+  background-color: var(--noesis-codeblock-bg);
+  background-image: none;
   border-inline: 1px solid var(--noesis-codeblock-border);
   box-sizing: border-box;
-  color: var(--noesis-codeblock-text) !important;
-  padding-inline: 1rem !important;
+  color: var(--noesis-codeblock-text);
+  padding-inline: 1rem;
 }
 
 body.noesis-codebox-on .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-begin,
 body.noesis-codebox-on .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-end {
-  border-color: var(--noesis-codeblock-border) !important;
+  border-color: var(--noesis-codeblock-border);
 }
 
 body.noesis-codebox-on .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-begin {
-  border-top: 1px solid var(--noesis-codeblock-border) !important;
+  border-top: 1px solid var(--noesis-codeblock-border);
   border-radius: var(--radius-l) var(--radius-l) 0 0;
   margin-top: 0.65rem;
-  padding-top: 0.75rem !important;
+  padding-top: 0.75rem;
 }
 
 body.noesis-codebox-on .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-end {
-  border-bottom: 1px solid var(--noesis-codeblock-border) !important;
+  border-bottom: 1px solid var(--noesis-codeblock-border);
   border-radius: 0 0 var(--radius-l) var(--radius-l);
   margin-bottom: 0.65rem;
-  padding-bottom: 0.75rem !important;
+  padding-bottom: 0.75rem;
 }
 
 body.noesis-codebox-on .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end) {
-  padding-block: 0.08rem !important;
+  padding-block: 0.08rem;
 }
 
 .markdown-rendered pre :is(.token.comment, .token.block-comment, .token.prolog, .token.doctype, .token.cdata) {
@@ -289,7 +288,7 @@ body.noesis-codebox-on .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock:
 }
 
 .markdown-source-view.mod-cm6 .HyperMD-codeblock :is(.cm-punctuation, .cm-bracket, .cm-hr) {
-  color: var(--code-punctuation) !important;
+  color: var(--code-punctuation);
 }
 
 .markdown-source-view.mod-cm6 .HyperMD-codeblock .cm-link {
@@ -385,7 +384,7 @@ body.noesis-tables-on .markdown-rendered td {
 }
 
 body.noesis-tables-on .markdown-rendered tbody tr:hover td {
-  background: color-mix(in srgb, var(--noesis-current-accent) 6%, var(--noesis-table-row-alt-bg, var(--background-primary))) !important;
+  background: color-mix(in srgb, var(--noesis-current-accent) 6%, var(--noesis-table-row-alt-bg, var(--background-primary)));
 }
 
 input[type=checkbox] {
@@ -454,7 +453,7 @@ body :is(.markdown-embed, .file-embed) {
 }
 
 body.noesis-active-line-highlight :is(.markdown-source-view.mod-cm6, .cm-editor) :is(.cm-activeLine, .cm-activeLineGutter, .cm-active.cm-line) {
-  background-color: color-mix(in srgb, var(--noesis-current-accent) 8%, transparent) !important;
+  background-color: color-mix(in srgb, var(--noesis-current-accent) 8%, transparent);
 }
 
 

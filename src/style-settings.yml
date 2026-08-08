@@ -507,12 +507,6 @@ settings:
     type: class-toggle
     default: false
   -
-    id: noesis-sidebar-parent-highlights
-    title: Highlight Parent Folders
-    description: Mirrors selected child note state onto parent folders. Leave off for very large vaults.
-    type: class-toggle
-    default: false
-  -
     id: noesis-sidebar-item-tab-height
     title: Folder And Note Tab Height
     description: Adjust the vertical height of navigation list items in the file explorer.

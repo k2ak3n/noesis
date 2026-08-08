@@ -54,7 +54,7 @@ body.noesis-callouts-on {
 }
 .callout[data-callout=timeline] .callout-content > h1,
 .callout[data-callout=attackchain] .callout-content > h1 {
-  color: var(--text-muted) !important;
+  color: var(--text-muted);
   font-size: 0.86em;
   font-weight: 700;
   text-transform: uppercase;

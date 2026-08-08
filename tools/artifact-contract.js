@@ -64,17 +64,17 @@ const requiredSurfaceHierarchyTokens = [
   '--background-secondary: #f5f5f7;',
   'body .workspace .mod-root :is(.workspace-leaf-content, .view-content) {',
   'body .workspace .mod-root .workspace-tabs:not(.mod-stacked) {',
-  'background: var(--noesis-tab-active-bg) !important;',
-  'border-bottom-color: var(--noesis-tab-indicator) !important;',
+  'background: var(--noesis-tab-active-bg);',
+  'border-bottom-color: var(--noesis-tab-indicator);',
   '--noesis-underline-indicator-color: var(--noesis-tab-indicator);',
   'body.noesis-tabs-underline .workspace .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header {',
   'body.noesis-tabs-underline :is(.mod-left-split, .mod-right-split) .workspace-tabs:not(.mod-stacked) .workspace-tab-header-inner {',
-  'box-shadow: inset 0 -2px 0 var(--noesis-underline-indicator-color) !important;',
-  'stroke-width: var(--icon-stroke, 2) !important;',
+  'box-shadow: inset 0 -2px 0 var(--noesis-underline-indicator-color);',
+  'stroke-width: var(--icon-stroke, 2);',
   '--noesis-line-tabs-ribbon-surface-bleed: 6px;',
-  'padding-block: 0 !important;',
-  'align-items: stretch !important;',
-  'box-shadow: 0 calc(-1 * var(--noesis-line-tabs-ribbon-surface-bleed)) 0 var(--noesis-line-tabs-ribbon-active-bg) !important;',
+  'padding-block: 0;',
+  'align-items: stretch;',
+  'box-shadow: 0 calc(-1 * var(--noesis-line-tabs-ribbon-surface-bleed)) 0 var(--noesis-line-tabs-ribbon-active-bg);',
 ];
 
 function read(file) {
@@ -108,6 +108,9 @@ for (const token of requiredSurfaceHierarchyTokens) {
   if (!css.includes(token)) failures.push(`noesis: missing surface hierarchy token ${token}`);
 }
 for (const token of forbiddenGeneratedTokens) {
+  if (css.includes(token)) failures.push(`noesis: generated CSS must not include ${token}`);
+}
+for (const token of ['!important', ':has(']) {
   if (css.includes(token)) failures.push(`noesis: generated CSS must not include ${token}`);
 }
 for (const text of [css, calloutSource]) {

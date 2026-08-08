@@ -51,32 +51,27 @@
 }
 
 body.noesis-sidebar-items-follow-tab-style .nav-files-container {
-  --nav-indentation-guide-color: color-mix(in srgb, var(--noesis-tab-indicator) 18%, transparent) !important;
-  --nav-indentation-guide-color-active: color-mix(in srgb, var(--noesis-tab-indicator) 46%, transparent) !important;
-  --indentation-guide-color: color-mix(in srgb, var(--noesis-tab-indicator) 18%, transparent) !important;
-  --indentation-guide-color-active: color-mix(in srgb, var(--noesis-tab-indicator) 46%, transparent) !important;
+  --nav-indentation-guide-color: color-mix(in srgb, var(--noesis-tab-indicator) 18%, transparent);
+  --nav-indentation-guide-color-active: color-mix(in srgb, var(--noesis-tab-indicator) 46%, transparent);
+  --indentation-guide-color: color-mix(in srgb, var(--noesis-tab-indicator) 18%, transparent);
+  --indentation-guide-color-active: color-mix(in srgb, var(--noesis-tab-indicator) 46%, transparent);
 }
 
 body.noesis-sidebar-items-follow-tab-style :is(.nav-folder-children, .tree-item-children) {
-  border-left-width: var(--nav-indentation-guide-width, 1px) !important;
-  border-inline-start-width: var(--nav-indentation-guide-width, 1px) !important;
-  border-left-color: var(--nav-indentation-guide-color) !important;
-  border-inline-start-color: var(--nav-indentation-guide-color) !important;
-}
-
-body.noesis-sidebar-items-follow-tab-style.noesis-sidebar-parent-highlights :is(.nav-folder, .tree-item):has(:is(.nav-file-title, .nav-folder-title):is(.is-active, .is-selected, .mod-selected, [aria-selected=true])) > :is(.nav-folder-children, .tree-item-children) {
-  border-left-color: var(--nav-indentation-guide-color-active) !important;
-  border-inline-start-color: var(--nav-indentation-guide-color-active) !important;
+  border-left-width: var(--nav-indentation-guide-width, 1px);
+  border-inline-start-width: var(--nav-indentation-guide-width, 1px);
+  border-left-color: var(--nav-indentation-guide-color);
+  border-inline-start-color: var(--nav-indentation-guide-color);
 }
 
 body.noesis-sidebar-items-follow-tab-style :is(.nav-folder-title, .nav-file-title) {
   display: flex;
   align-items: center;
-  background: transparent !important;
-  border-color: transparent !important;
-  border-width: 0 !important;
-  box-shadow: none !important;
-  overflow: visible !important;
+  background: transparent;
+  border-color: transparent;
+  border-width: 0;
+  box-shadow: none;
+  overflow: visible;
 }
 
 body.noesis-sidebar-items-follow-tab-style :is(.nav-folder-title-content, .nav-file-title-content) {
@@ -102,13 +97,13 @@ body.noesis-sidebar-items-follow-tab-style :is(.nav-folder-title, .nav-file-titl
 }
 
 body.noesis-sidebar-items-follow-tab-style :is(.nav-folder-title, .nav-file-title):is(.is-active, .is-selected, .mod-selected, [aria-selected=true]) :is(.nav-folder-title-content, .nav-file-title-content) {
-  background: var(--noesis-sidebar-active-bg) !important;
-  border-color: var(--noesis-sidebar-active-border) !important;
+  background: var(--noesis-sidebar-active-bg);
+  border-color: var(--noesis-sidebar-active-border);
 }
 
 body.noesis-sidebar-items-follow-tab-style :is(.nav-folder, .nav-file):is(.is-active, .is-selected, .mod-selected, [aria-selected=true]) > :is(.nav-folder-title, .nav-file-title) :is(.nav-folder-title-content, .nav-file-title-content) {
-  background: var(--noesis-sidebar-active-bg) !important;
-  border-color: var(--noesis-sidebar-active-border) !important;
+  background: var(--noesis-sidebar-active-bg);
+  border-color: var(--noesis-sidebar-active-border);
 }
 
 body.noesis-sidebar-items-follow-tab-style :is(.nav-folder-title-content, .nav-file-title-content) {
@@ -120,13 +115,7 @@ body.noesis-sidebar-items-follow-tab-style :is(.nav-folder-title-content, .nav-f
 
 body.theme-light :is(.nav-folder-title, .nav-file-title):is(.is-active, .is-selected, .mod-selected, [aria-selected=true], .is-being-dragged, .is-dragging) :is(.nav-folder-title-content, .nav-file-title-content),
 body.theme-light :is(.nav-folder, .nav-file):is(.is-active, .is-selected, .mod-selected, [aria-selected=true], .is-being-dragged, .is-dragging) > :is(.nav-folder-title, .nav-file-title) :is(.nav-folder-title-content, .nav-file-title-content) {
-  color: var(--text-normal) !important;
-}
-
-body.noesis-sidebar-items-follow-tab-style.noesis-sidebar-parent-highlights .nav-folder:has(:is(.nav-file-title, .nav-folder-title):is(.is-active, .is-selected, .mod-selected, [aria-selected=true])) > .nav-folder-title > .nav-folder-title-content {
-  background: var(--noesis-sidebar-active-bg) !important;
-  border-color: var(--noesis-sidebar-active-border) !important;
-  color: var(--text-normal) !important;
+  color: var(--text-normal);
 }
 
 .nav-folder-title:hover,
@@ -144,79 +133,79 @@ body.noesis-sidebar-items-follow-tab-style.noesis-sidebar-parent-highlights .nav
 .nav-folder-title:is(.is-active, .is-selected, .mod-selected, [aria-selected=true]),
 .nav-file:is(.is-active, .is-selected, .mod-selected, [aria-selected=true]) > .nav-file-title,
 .nav-folder:is(.is-active, .is-selected, .mod-selected, [aria-selected=true]) > .nav-folder-title {
-  background: var(--noesis-nav-active-bg) !important;
+  background: var(--noesis-nav-active-bg);
 }
 
 :is(.mod-left-split, .mod-right-split) .workspace-tab-header:hover .workspace-tab-header-inner {
-  background: var(--noesis-nav-hover-bg) !important;
+  background: var(--noesis-nav-hover-bg);
 }
 
 :is(.mod-left-split, .mod-right-split) .workspace-tab-header:is(.is-active, .mod-active, [aria-selected=true]),
 :is(.mod-left-split, .mod-right-split) .workspace-tab-header:is(.is-active, .mod-active, [aria-selected=true]) .workspace-tab-header-inner,
 :is(.mod-left-split, .mod-right-split) .workspace-tab-header-inner:is(.is-active, .mod-active, [aria-selected=true]) {
-  --icon-color: var(--noesis-current-accent) !important;
-  --icon-color-active: var(--noesis-current-accent) !important;
-  --icon-color-focused: var(--noesis-current-accent) !important;
-  background: var(--noesis-nav-active-bg) !important;
-  color: var(--noesis-current-accent) !important;
+  --icon-color: var(--noesis-current-accent);
+  --icon-color-active: var(--noesis-current-accent);
+  --icon-color-focused: var(--noesis-current-accent);
+  background: var(--noesis-nav-active-bg);
+  color: var(--noesis-current-accent);
 }
 
 :is(.mod-left-split, .mod-right-split) .workspace-tab-header:is(.is-active, .mod-active, [aria-selected=true]) .workspace-tab-header-inner,
 :is(.mod-left-split, .mod-right-split) .workspace-tab-header-inner:is(.is-active, .mod-active, [aria-selected=true]) {
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--noesis-current-accent) 34%, transparent) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--noesis-current-accent) 34%, transparent);
 }
 
 :is(.mod-left-split, .mod-right-split) :is(.workspace-tab-header:is(.is-active, .mod-active, [aria-selected=true]),
 .workspace-tab-header-inner:is(.is-active, .mod-active, [aria-selected=true])) :is(.workspace-tab-header-inner-icon, .workspace-tab-header-inner-icon .svg-icon, .svg-icon, svg) {
-  color: var(--noesis-current-accent) !important;
-  stroke: currentColor !important;
+  color: var(--noesis-current-accent);
+  stroke: currentColor;
 }
 
 :is(.mod-left-split, .mod-right-split) :is(.workspace-tab-header:is(.is-active, .mod-active, [aria-selected=true]),
 .workspace-tab-header-inner:is(.is-active, .mod-active, [aria-selected=true])) :is(svg, .svg-icon) * {
-  stroke: currentColor !important;
+  stroke: currentColor;
 }
 
 :is(.mod-left-split, .mod-right-split) :is(.view-header, .view-actions) :is(.view-action, .clickable-icon, button.clickable-icon) {
-  --icon-color: var(--text-muted) !important;
-  color: var(--text-muted) !important;
-  border-radius: var(--radius-m) !important;
+  --icon-color: var(--text-muted);
+  color: var(--text-muted);
+  border-radius: var(--radius-m);
 }
 
 :is(.mod-left-split, .mod-right-split) :is(.view-header, .view-actions) :is(.view-action, .clickable-icon, button.clickable-icon) :is(.svg-icon, svg) {
-  color: currentColor !important;
-  stroke: currentColor !important;
+  color: currentColor;
+  stroke: currentColor;
 }
 
 :is(.mod-left-split, .mod-right-split) :is(.view-action,
 .clickable-icon,
 button.clickable-icon):is(.is-active, .is-selected, .mod-active, [aria-pressed=true], [aria-selected=true], [data-active=true]) {
-  --icon-color: var(--noesis-current-accent) !important;
-  --icon-color-active: var(--noesis-current-accent) !important;
-  --icon-color-focused: var(--noesis-current-accent) !important;
-  color: var(--noesis-current-accent) !important;
-  background: var(--noesis-nav-active-bg) !important;
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--noesis-current-accent) 34%, transparent) !important;
+  --icon-color: var(--noesis-current-accent);
+  --icon-color-active: var(--noesis-current-accent);
+  --icon-color-focused: var(--noesis-current-accent);
+  color: var(--noesis-current-accent);
+  background: var(--noesis-nav-active-bg);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--noesis-current-accent) 34%, transparent);
 }
 
 :is(.mod-left-split, .mod-right-split) :is(.view-action,
 .clickable-icon,
 button.clickable-icon):is(:hover, :focus-visible) {
-  --icon-color: var(--noesis-current-accent) !important;
-  color: var(--noesis-current-accent) !important;
+  --icon-color: var(--noesis-current-accent);
+  color: var(--noesis-current-accent);
 }
 
 :is(.mod-left-split, .mod-right-split) :is(.view-action,
 .clickable-icon,
 button.clickable-icon):is(.is-active, .is-selected, .mod-active, [aria-pressed=true], [aria-selected=true], [data-active=true]) :is(.svg-icon, svg) {
-  color: var(--noesis-current-accent) !important;
-  stroke: currentColor !important;
+  color: var(--noesis-current-accent);
+  stroke: currentColor;
 }
 
 :is(.mod-left-split, .mod-right-split) :is(.view-action,
 .clickable-icon,
 button.clickable-icon):is(.is-active, .is-selected, .mod-active, [aria-pressed=true], [aria-selected=true], [data-active=true]) :is(.svg-icon, svg) * {
-  stroke: currentColor !important;
+  stroke: currentColor;
 }
 
 body.noesis-tabs-pills:not(.noesis-tabs-obsidian) :is(.mod-left-split, .mod-right-split) .workspace-tabs:not(.mod-stacked) {
@@ -228,132 +217,132 @@ body.noesis-tabs-pills:not(.noesis-tabs-obsidian) :is(.mod-left-split, .mod-righ
 }
 
 body.noesis-tabs-pills:not(.noesis-tabs-obsidian) :is(.mod-left-split, .mod-right-split) .workspace-tabs:not(.mod-stacked) .workspace-tab-header-spacer {
-  display: none !important;
+  display: none;
 }
 
 body.noesis-tabs-pills:not(.noesis-tabs-obsidian) :is(.mod-left-split, .mod-right-split) .workspace-tabs:not(.mod-stacked) .workspace-tab-header-container {
-  min-height: var(--header-height, 40px) !important;
-  height: var(--header-height, 40px) !important;
-  padding: 0 !important;
-  border-bottom: var(--noesis-border-thin) !important;
-  background: var(--noesis-tab-strip-bg) !important;
-  box-shadow: none !important;
+  min-height: var(--header-height, 40px);
+  height: var(--header-height, 40px);
+  padding: 0;
+  border-bottom: var(--noesis-border-thin);
+  background: var(--noesis-tab-strip-bg);
+  box-shadow: none;
 }
 
 body.noesis-tabs-pills:not(.noesis-tabs-obsidian) :is(.mod-left-split, .mod-right-split) .workspace-tabs:not(.mod-stacked) .workspace-tab-header-container-inner {
-  flex-grow: 1 !important;
-  align-items: center !important;
-  gap: 4px !important;
-  margin: 0 !important;
-  padding: 4px 6px 0 !important;
+  flex-grow: 1;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  padding: 4px 6px 0;
 }
 
 body.noesis-tabs-pills:not(.noesis-tabs-obsidian) :is(.mod-left-split, .mod-right-split) .workspace-tabs:not(.mod-stacked) .workspace-tab-header {
-  flex: 0 0 42px !important;
-  width: 42px !important;
-  min-width: 42px !important;
-  max-width: 42px !important;
-  height: 34px !important;
-  padding: 0 !important;
-  border: 0 !important;
-  border-radius: var(--radius-m) !important;
-  background: transparent !important;
-  color: var(--noesis-tab-text) !important;
-  box-shadow: none !important;
+  flex: 0 0 42px;
+  width: 42px;
+  min-width: 42px;
+  max-width: 42px;
+  height: 34px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-m);
+  background: transparent;
+  color: var(--noesis-tab-text);
+  box-shadow: none;
 }
 
 body.noesis-tabs-pills:not(.noesis-tabs-obsidian) .mod-right-split .workspace-tabs:not(.mod-stacked) .workspace-tab-header-container-inner {
-  justify-content: flex-start !important;
+  justify-content: flex-start;
 }
 
 body.noesis-tabs-pills:not(.noesis-tabs-obsidian) :is(.mod-left-split, .mod-right-split) .workspace-tabs:not(.mod-stacked) .workspace-tab-header::before {
   content: "";
-  display: none !important;
+  display: none;
 }
 
 body.noesis-tabs-pills:not(.noesis-tabs-obsidian) :is(.mod-left-split, .mod-right-split) .workspace-tabs:not(.mod-stacked) .workspace-tab-header::after {
   content: "";
-  display: none !important;
+  display: none;
 }
 
 body.noesis-tabs-pills:not(.noesis-tabs-obsidian) :is(.mod-left-split, .mod-right-split) .workspace-tabs:not(.mod-stacked) .workspace-tab-header-inner::after {
   content: "";
-  display: none !important;
+  display: none;
 }
 
 body.noesis-tabs-pills:not(.noesis-tabs-obsidian) :is(.mod-left-split, .mod-right-split) .workspace-tabs:not(.mod-stacked) .workspace-tab-header-inner {
-  position: relative !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: 100% !important;
-  height: 30px !important;
-  min-height: 30px !important;
-  gap: 0 !important;
-  padding: 0 var(--noesis-space-2) !important;
-  overflow: hidden !important;
-  border: 1px solid transparent !important;
-  border-radius: var(--radius-m) !important;
-  background: transparent !important;
-  color: inherit !important;
-  box-shadow: none !important;
-  transition: background-color 120ms ease, border-color 120ms ease, box-shadow 120ms ease, color 120ms ease !important;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 30px;
+  min-height: 30px;
+  gap: 0;
+  padding: 0 var(--noesis-space-2);
+  overflow: hidden;
+  border: 1px solid transparent;
+  border-radius: var(--radius-m);
+  background: transparent;
+  color: inherit;
+  box-shadow: none;
+  transition: background-color 120ms ease, border-color 120ms ease, box-shadow 120ms ease, color 120ms ease;
 }
 
 body.noesis-tabs-pills:not(.noesis-tabs-obsidian) :is(.mod-left-split, .mod-right-split) .workspace-tabs:not(.mod-stacked) .workspace-tab-header-inner-title {
-  display: none !important;
+  display: none;
 }
 
 body.noesis-tabs-pills:not(.noesis-tabs-obsidian) :is(.mod-left-split, .mod-right-split) .workspace-tabs:not(.mod-stacked) .workspace-tab-header:hover {
-  --icon-color: var(--noesis-tab-indicator) !important;
-  --icon-color-active: var(--noesis-tab-indicator) !important;
-  --icon-color-focused: var(--noesis-tab-indicator) !important;
-  color: var(--noesis-tab-text-active) !important;
+  --icon-color: var(--noesis-tab-indicator);
+  --icon-color-active: var(--noesis-tab-indicator);
+  --icon-color-focused: var(--noesis-tab-indicator);
+  color: var(--noesis-tab-text-active);
 }
 
 body.noesis-tabs-pills:not(.noesis-tabs-obsidian) :is(.mod-left-split, .mod-right-split) .workspace-tabs:not(.mod-stacked) .workspace-tab-header:is(.is-active, .mod-active, [aria-selected=true]) {
-  --icon-color: var(--noesis-tab-indicator) !important;
-  --icon-color-active: var(--noesis-tab-indicator) !important;
-  --icon-color-focused: var(--noesis-tab-indicator) !important;
-  color: var(--noesis-tab-text-active) !important;
+  --icon-color: var(--noesis-tab-indicator);
+  --icon-color-active: var(--noesis-tab-indicator);
+  --icon-color-focused: var(--noesis-tab-indicator);
+  color: var(--noesis-tab-text-active);
 }
 
 body.noesis-tabs-pills:not(.noesis-tabs-obsidian) :is(.mod-left-split, .mod-right-split) .workspace-tabs:not(.mod-stacked) .workspace-tab-header:hover .workspace-tab-header-inner {
-  border-color: var(--noesis-tab-strip-border) !important;
-  background: var(--noesis-tab-hover-bg) !important;
+  border-color: var(--noesis-tab-strip-border);
+  background: var(--noesis-tab-hover-bg);
 }
 
 body.noesis-tabs-pills:not(.noesis-tabs-obsidian) :is(.mod-left-split, .mod-right-split) .workspace-tabs:not(.mod-stacked) .workspace-tab-header:is(:hover, .is-active, .mod-active, [aria-selected=true]) :is(.workspace-tab-header-inner-icon, .workspace-tab-header-inner-icon .svg-icon, .svg-icon, svg) {
-  color: var(--noesis-tab-indicator) !important;
-  stroke: currentColor !important;
+  color: var(--noesis-tab-indicator);
+  stroke: currentColor;
 }
 
 body.noesis-tabs-pills:not(.noesis-tabs-obsidian) :is(.mod-left-split, .mod-right-split) .workspace-tabs:not(.mod-stacked) .workspace-tab-header:is(:hover, .is-active, .mod-active, [aria-selected=true]) :is(svg, .svg-icon) * {
-  stroke: currentColor !important;
+  stroke: currentColor;
 }
 
 
 body.noesis-tabs-underline :is(.mod-left-split, .mod-right-split) .workspace-tabs:not(.mod-stacked) .workspace-tab-header-inner {
-  box-shadow: inset 0 -2px 0 var(--noesis-underline-indicator-color) !important;
+  box-shadow: inset 0 -2px 0 var(--noesis-underline-indicator-color);
 }
 /* Pills sidebar tabs */
 body.noesis-tabs-pills:not(.noesis-tabs-obsidian) :is(.mod-left-split, .mod-right-split) .workspace-tab-header-inner {
-  border: var(--noesis-border-thin) !important;
-  background: color-mix(in srgb, var(--background-primary) 64%, transparent) !important;
+  border: var(--noesis-border-thin);
+  background: color-mix(in srgb, var(--background-primary) 64%, transparent);
 }
 
 body.noesis-tabs-pills:not(.noesis-tabs-obsidian) :is(.mod-left-split, .mod-right-split) .workspace-tab-header-inner::before {
   content: "";
-  display: none !important;
+  display: none;
 }
 
 body.noesis-tabs-pills:not(.noesis-tabs-obsidian) :is(.mod-left-split, .mod-right-split) .workspace-tab-header:hover .workspace-tab-header-inner {
-  border-color: color-mix(in srgb, var(--noesis-tab-indicator) 42%, var(--background-modifier-border)) !important;
-  background: color-mix(in srgb, var(--noesis-tab-indicator) 8%, var(--background-primary)) !important;
+  border-color: color-mix(in srgb, var(--noesis-tab-indicator) 42%, var(--background-modifier-border));
+  background: color-mix(in srgb, var(--noesis-tab-indicator) 8%, var(--background-primary));
 }
 
 body.noesis-tabs-pills:not(.noesis-tabs-obsidian) :is(.mod-left-split, .mod-right-split) .workspace-tab-header:is(.is-active, .mod-active, [aria-selected=true]) .workspace-tab-header-inner {
-  border-color: color-mix(in srgb, var(--noesis-tab-indicator) 64%, var(--background-modifier-border)) !important;
-  background: color-mix(in srgb, var(--noesis-tab-indicator) 10%, var(--background-primary)) !important;
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--noesis-tab-indicator) 10%, transparent) !important;
+  border-color: color-mix(in srgb, var(--noesis-tab-indicator) 64%, var(--background-modifier-border));
+  background: color-mix(in srgb, var(--noesis-tab-indicator) 10%, var(--background-primary));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--noesis-tab-indicator) 10%, transparent);
 }

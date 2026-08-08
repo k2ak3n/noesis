@@ -22,7 +22,7 @@ body.noesis-tasks-on :is(.markdown-rendered li.task-list-item,
   position: relative;
   border-radius: var(--radius-s);
   color: var(--text-normal);
-  text-decoration: none !important;
+  text-decoration: none;
   --checklist-done-decoration: none;
   --checklist-done-color: var(--text-normal);
   --checkbox-color: transparent;
@@ -57,53 +57,53 @@ body.noesis-tasks-on :is(.markdown-rendered li.task-list-item,
 .markdown-source-view.mod-cm6 .HyperMD-task-line,
 .markdown-source-view.mod-cm6 .cm-line.HyperMD-task-line):is([data-task="!"], [data-task=H], [data-task=h], [data-task=M], [data-task=m], [data-task=L], [data-task=l]) :is(input[type=checkbox], .task-list-item-checkbox) {
   accent-color: var(--noesis-task-priority-color);
-  background-color: transparent !important;
-  background-image: none !important;
-  border-color: var(--noesis-task-priority-color) !important;
+  background-color: transparent;
+  background-image: none;
+  border-color: var(--noesis-task-priority-color);
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--noesis-task-priority-color) 12%, transparent);
-  -webkit-mask-image: none !important;
-  mask-image: none !important;
+  -webkit-mask-image: none;
+  mask-image: none;
 }
 
 body.noesis-tasks-on :is(input[type=checkbox],
 .task-list-item-checkbox):is([data-task="!"], [data-task=H], [data-task=h], [data-task=M], [data-task=m], [data-task=L], [data-task=l]) {
   accent-color: var(--noesis-task-priority-color);
-  background-color: transparent !important;
-  background-image: none !important;
-  border-color: var(--noesis-task-priority-color) !important;
+  background-color: transparent;
+  background-image: none;
+  border-color: var(--noesis-task-priority-color);
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--noesis-task-priority-color) 12%, transparent);
-  -webkit-mask-image: none !important;
-  mask-image: none !important;
+  -webkit-mask-image: none;
+  mask-image: none;
 }
 
 body.noesis-tasks-on :is(.markdown-rendered li.task-list-item,
 .markdown-source-view.mod-cm6 .HyperMD-task-line,
 .markdown-source-view.mod-cm6 .cm-line.HyperMD-task-line):is([data-task="!"], [data-task=H], [data-task=h], [data-task=M], [data-task=m], [data-task=L], [data-task=l]) :is(input[type=checkbox], .task-list-item-checkbox)::after {
-  display: none !important;
+  display: none;
   content: "";
-  background-color: transparent !important;
-  -webkit-mask-image: none !important;
-  mask-image: none !important;
+  background-color: transparent;
+  -webkit-mask-image: none;
+  mask-image: none;
 }
 
 body.noesis-tasks-on :is(input[type=checkbox],
 .task-list-item-checkbox):is([data-task="!"], [data-task=H], [data-task=h], [data-task=M], [data-task=m], [data-task=L], [data-task=l])::after {
-  display: none !important;
+  display: none;
   content: "";
-  background-color: transparent !important;
-  -webkit-mask-image: none !important;
-  mask-image: none !important;
+  background-color: transparent;
+  -webkit-mask-image: none;
+  mask-image: none;
 }
 
 body.noesis-tasks-on .markdown-rendered li.task-list-item:is([data-task="!"], [data-task=H], [data-task=h], [data-task=M], [data-task=m], [data-task=L], [data-task=l]) :is(p, span, a) {
   color: inherit;
-  text-decoration: none !important;
+  text-decoration: none;
 }
 
 body.noesis-tasks-on .markdown-source-view.mod-cm6 :is(.HyperMD-task-line,
 .cm-line.HyperMD-task-line):is([data-task="!"], [data-task=H], [data-task=h], [data-task=M], [data-task=m], [data-task=L], [data-task=l]) span:not([class^=cm-list]) {
   color: inherit;
-  text-decoration: none !important;
+  text-decoration: none;
 }
 
 body.noesis-tasks-on.noesis-task-priority-row :is(.markdown-rendered li.task-list-item,
@@ -162,16 +162,16 @@ body.noesis-tasks-on.noesis-task-priority-rail .markdown-source-view.mod-cm6 :is
 }
 
 body.noesis-tasks-on.noesis-task-priority-row :is(.markdown-rendered li.task-list-item, .markdown-source-view.mod-cm6 .HyperMD-task-line):hover {
-  background: linear-gradient(90deg, color-mix(in srgb, var(--noesis-task-priority-color) 12%, transparent), transparent 74%) !important;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--noesis-task-priority-color) 12%, transparent), transparent 74%);
 }
 
 body.noesis-tasks-on.noesis-task-priority-solid :is(.markdown-rendered li.task-list-item, .markdown-source-view.mod-cm6 .HyperMD-task-line):hover {
-  background: color-mix(in srgb, var(--noesis-task-priority-color) 24%, var(--background-primary)) !important;
+  background: color-mix(in srgb, var(--noesis-task-priority-color) 24%, var(--background-primary));
 }
 
 body.noesis-tasks-on :is(.task-list-item, .HyperMD-task-line, .cm-line.HyperMD-task-line):is(.is-checked, .checked) {
   opacity: 0.55;
-  text-decoration: line-through !important;
+  text-decoration: line-through;
   --checklist-done-decoration: line-through;
   --checklist-done-color: var(--text-muted);
 }

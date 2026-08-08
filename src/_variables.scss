@@ -643,7 +643,7 @@ body.theme-light {
 
 body.theme-dark ::selection,
 body.theme-light ::selection {
-  background: var(--text-selection) !important;
+  background: var(--text-selection);
   color: inherit;
 }
 
@@ -653,12 +653,12 @@ body.theme-dark .cm-editor.cm-focused .cm-selectionBackground,
 body.theme-light .cm-editor.cm-focused .cm-selectionBackground,
 body.theme-dark .markdown-source-view.mod-cm6 .cm-selectionLayer .cm-selectionBackground,
 body.theme-light .markdown-source-view.mod-cm6 .cm-selectionLayer .cm-selectionBackground {
-  background: var(--text-selection) !important;
+  background: var(--text-selection);
 }
 
 @if $include-htb {
 body.noesis-preset-htb ::selection {
-  color: #fff !important;
+  color: #fff;
 }
 }
 
@@ -677,23 +677,23 @@ body.noesis-preset-htb {
 }
 
 body.noesis-preset-htb :is(.tag, .cm-hashtag, .metadata-property .multi-select-pill) {
-  border-color: color-mix(in srgb, var(--noesis-code-inline-color) 28%, transparent) !important;
-  background: var(--noesis-code-inline-bg) !important;
-  color: var(--noesis-code-inline-color) !important;
+  border-color: color-mix(in srgb, var(--noesis-code-inline-color) 28%, transparent);
+  background: var(--noesis-code-inline-bg);
+  color: var(--noesis-code-inline-color);
 }
 
 body.noesis-preset-htb :is(.tag, .cm-hashtag, .metadata-property .multi-select-pill):is(:hover, :focus-visible) {
-  border-color: color-mix(in srgb, var(--noesis-code-inline-color) 28%, transparent) !important;
-  background: var(--noesis-code-inline-bg) !important;
+  border-color: color-mix(in srgb, var(--noesis-code-inline-color) 28%, transparent);
+  background: var(--noesis-code-inline-bg);
 }
 
 body.noesis-preset-htb .metadata-property .multi-select-pill :is(.multi-select-pill-remove-button, .clickable-icon, button) {
-  --icon-color: var(--noesis-code-inline-color) !important;
-  color: var(--noesis-code-inline-color) !important;
+  --icon-color: var(--noesis-code-inline-color);
+  color: var(--noesis-code-inline-color);
 }
 
 body.noesis-preset-htb .metadata-property .multi-select-pill :is(.multi-select-pill-remove-button, .clickable-icon, button) :is(svg, .svg-icon) * {
-  stroke: currentColor !important;
+  stroke: currentColor;
 }
 }
 

@@ -27,8 +27,8 @@ $include-htb: false !default;
     --text-faint: #6b7280;
     --noesis-bg-elevated: #ffffff;
     --noesis-current-accent: #365f46;
-    color: var(--text-normal) !important;
-    background: #ffffff !important;
+    color: var(--text-normal);
+    background: #ffffff;
   }
 
   body.noesis-print-readable {
@@ -59,40 +59,38 @@ $include-htb: false !default;
   }
 
   :is(.workspace-ribbon, .status-bar, .titlebar, .view-header, .workspace-tab-header-container, .mod-sidedock) {
-    display: none !important;
+    display: none;
   }
 
   :is(.workspace, .workspace-split, .workspace-tabs, .workspace-leaf, .workspace-leaf-content, .view-content, .markdown-preview-view) {
-    width: auto !important;
-    height: auto !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow: visible !important;
-    background: #ffffff !important;
-    box-shadow: none !important;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    background: #ffffff;
+    box-shadow: none;
   }
 
   .markdown-preview-sizer,
   .markdown-rendered {
-    width: auto !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    color: var(--text-normal) !important;
+    width: auto;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    color: var(--text-normal);
     font-size: var(--noesis-print-font-size);
     line-height: var(--noesis-print-line-height);
   }
 
   .inline-title {
     margin-bottom: 1rem;
-    color: var(--noesis-print-title-color) !important;
+    color: var(--noesis-print-title-color);
     font-size: var(--noesis-print-title-size);
-    break-after: avoid;
   }
 
   .markdown-rendered :is(h1, h2, h3, h4, h5, h6) {
     margin-block: var(--noesis-print-heading-before) var(--noesis-print-heading-after);
-    break-after: avoid;
   }
 
   .markdown-rendered h1 {
@@ -127,25 +125,12 @@ $include-htb: false !default;
     margin: 20mm;
   }
 
-  .markdown-rendered :is(pre, blockquote, table, .callout) {
-    break-inside: avoid;
-  }
-
-  .markdown-rendered :is(p, li) {
-    orphans: 3;
-    widows: 3;
-  }
-
   thead {
     display: table-header-group;
   }
 
-  tr {
-    break-inside: avoid;
-  }
-
   .markdown-rendered a {
-    color: #1f5f86 !important;
+    color: #1f5f86;
     text-decoration: underline;
   }
 
@@ -159,9 +144,9 @@ $include-htb: false !default;
   .markdown-rendered pre,
   body.noesis-codebox-on .markdown-rendered pre,
   body.noesis-codebox-on .markdown-rendered pre code {
-    border-color: #d8dde6 !important;
-    background: #f6f8fb !important;
-    color: #111827 !important;
+    border-color: #d8dde6;
+    background: #f6f8fb;
+    color: #111827;
   }
 
   .markdown-rendered pre code,
@@ -172,10 +157,10 @@ $include-htb: false !default;
   @if $include-htb {
   body.noesis-callouts-on .callout {
     padding: var(--noesis-print-callout-padding-y) var(--noesis-print-callout-padding-x);
-    border-color: #d8dde6 !important;
-    border-left-color: var(--callout-color) !important;
-    background: #ffffff !important;
-    box-shadow: none !important;
+    border-color: #d8dde6;
+    border-left-color: var(--callout-color);
+    background: #ffffff;
+    box-shadow: none;
   }
   }
 

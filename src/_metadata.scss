@@ -8,7 +8,7 @@ body.noesis-properties-list {
     background: transparent;
   }
 
-  .metadata-container:is(.is-collapsed, :has(:is(.metadata-properties-heading, .metadata-properties-title).is-collapsed)) {
+  .metadata-container.is-collapsed {
     margin-block: 0.5rem 0.65rem;
     padding: 0;
     border-color: transparent;
@@ -59,25 +59,25 @@ body.noesis-properties-list {
   .metadata-property-key-input {
     width: 100%;
     min-height: 1.7rem;
-    padding: 0.18rem 0.28rem !important;
-    border: 0 !important;
-    border-radius: var(--radius-s) !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    color: var(--text-muted) !important;
+    padding: 0.18rem 0.28rem;
+    border: 0;
+    border-radius: var(--radius-s);
+    background: transparent;
+    box-shadow: none;
+    color: var(--text-muted);
     font-size: 0.88em;
     font-weight: 600;
   }
 
   .metadata-property-key :is(input, [contenteditable=true]):hover,
   .metadata-property-key-input:hover {
-    background: color-mix(in srgb, var(--background-modifier-hover) 72%, transparent) !important;
+    background: color-mix(in srgb, var(--background-modifier-hover) 72%, transparent);
   }
 
   .metadata-property-key :is(input, [contenteditable=true]):focus,
   .metadata-property-key-input:focus {
-    background: color-mix(in srgb, var(--noesis-current-accent) 8%, transparent) !important;
-    box-shadow: inset 0 -1px 0 var(--noesis-current-accent) !important;
+    background: color-mix(in srgb, var(--noesis-current-accent) 8%, transparent);
+    box-shadow: inset 0 -1px 0 var(--noesis-current-accent);
   }
 
   .metadata-property-value {
@@ -157,8 +157,8 @@ body.noesis-properties-list .metadata-property .multi-select-pill {
 
 .workspace-leaf-content[data-type=outline] .tree-item-self:is(.is-active, .is-selected, .mod-active, .mod-selected, [aria-selected=true]),
 .workspace-leaf-content[data-type=outline] .tree-item:is(.is-active, .is-selected, .mod-active, .mod-selected, [aria-selected=true]) > .tree-item-self {
-  background: var(--noesis-sidebar-active-bg) !important;
-  color: var(--text-normal) !important;
+  background: var(--noesis-sidebar-active-bg);
+  color: var(--text-normal);
 }
 
 :is(.search-result-file-match, .backlink-pane .search-result-file-match) {
@@ -193,4 +193,3 @@ body.noesis-search-matches-accent :is(.search-result-file-matched-text, .suggest
     color: var(--text-normal);
   }
 }
-

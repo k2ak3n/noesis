@@ -77,9 +77,9 @@ body:is(.is-popout-window, .is-popout, .mod-popout) {
 body .workspace .mod-root .view-header {
   height: var(--header-height);
   border-top: 0;
-  border-bottom: var(--noesis-view-header-divider) !important;
+  border-bottom: var(--noesis-view-header-divider);
   background: var(--background-primary);
-  box-shadow: none !important;
+  box-shadow: none;
 }
 
 body .workspace .mod-root .workspace-tabs:not(.mod-stacked) {
@@ -89,7 +89,7 @@ body .workspace .mod-root .workspace-tabs:not(.mod-stacked) {
 }
 
 body .workspace .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header-container {
-  background: var(--noesis-tab-strip-bg) !important;
+  background: var(--noesis-tab-strip-bg);
 }
 
 body.noesis-note-nav-separator-line {
@@ -102,11 +102,11 @@ body.noesis-note-nav-separator-line {
 }
 
 .empty-state-action {
-  color: var(--link-color) !important;
+  color: var(--link-color);
 }
 
 .empty-state-action:is(:hover, :focus-visible) {
-  color: var(--link-color-hover) !important;
+  color: var(--link-color-hover);
 }
 
 
@@ -116,34 +116,34 @@ body.noesis-note-nav-separator-line {
   }
 
   .workspace-tab-header-container {
-    position: relative !important;
+    position: relative;
     min-width: 0;
-    min-height: var(--noesis-top-chrome-height) !important;
-    height: var(--noesis-top-chrome-height) !important;
-    margin: 0 !important;
-    padding: 0 calc(var(--noesis-space-2) + var(--noesis-window-control-space)) 0 var(--noesis-space-2) !important;
-    overflow: visible !important;
-    border-radius: 0 !important;
-    background: var(--noesis-tab-strip-bg) !important;
+    min-height: var(--noesis-top-chrome-height);
+    height: var(--noesis-top-chrome-height);
+    margin: 0;
+    padding: 0 calc(var(--noesis-space-2) + var(--noesis-window-control-space)) 0 var(--noesis-space-2);
+    overflow: visible;
+    border-radius: 0;
+    background: var(--noesis-tab-strip-bg);
   }
 }
 
 body:is(.is-popout-window, .is-popout, .mod-popout):not(.noesis-tabs-obsidian) .workspace-tab-header-container {
-  padding-inline-end: calc(var(--noesis-space-2) + var(--noesis-window-control-space)) !important;
+  padding-inline-end: calc(var(--noesis-space-2) + var(--noesis-window-control-space));
 }
 
 @include presets.root-pills-tabs {
   .workspace-tab-header-container-inner {
-    position: relative !important;
+    position: relative;
     flex: 0 1 auto;
     min-width: 0;
-    z-index: 1 !important;
-    height: calc(var(--noesis-tab-height) * 1px + 3px) !important;
-    gap: 5px !important;
-    align-items: flex-start !important;
-    padding: 0 !important;
+    z-index: 1;
+    height: calc(var(--noesis-tab-height) * 1px + 3px);
+    gap: 5px;
+    align-items: flex-start;
+    padding: 0;
     overflow: hidden;
-    transform: translateY(var(--noesis-tab-row-y)) !important;
+    transform: translateY(var(--noesis-tab-row-y));
   }
 }
 
@@ -160,9 +160,9 @@ body:not(.noesis-tabs-obsidian) .mod-root .workspace-tab-header-container > .wor
 
 @include presets.root-pills-tabs {
   .workspace-tab-container {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-    background: var(--noesis-tab-content-bg) !important;
+    margin-top: 0;
+    padding-top: 0;
+    background: var(--noesis-tab-content-bg);
   }
 }
 
@@ -179,22 +179,22 @@ body.noesis-tabs-underline {
     --tab-text-color-focused-active-current: var(--noesis-tab-text-active);
 
     .workspace-tab-header-container {
-      border-bottom: var(--noesis-border-thin) !important;
-      background: var(--noesis-tab-strip-bg) !important;
-      box-shadow: none !important;
+      border-bottom: var(--noesis-border-thin);
+      background: var(--noesis-tab-strip-bg);
+      box-shadow: none;
 
       &-inner {
-        gap: 0 !important;
+        gap: 0;
       }
     }
 
     .workspace-tab-header {
-      border: 0 !important;
-      border-bottom: 2px solid transparent !important;
-      border-radius: 0 !important;
-      background: transparent !important;
-      color: var(--noesis-tab-text) !important;
-      box-shadow: none !important;
+      border: 0;
+      border-bottom: 2px solid transparent;
+      border-radius: 0;
+      background: transparent;
+      color: var(--noesis-tab-text);
+      box-shadow: none;
       transition: background-color var(--noesis-transition-fast), border-color var(--noesis-transition-fast), color var(--noesis-transition-fast), box-shadow var(--noesis-transition-fast);
 
 
@@ -203,37 +203,37 @@ body.noesis-tabs-underline {
       &-inner::before,
       &-inner::after {
         content: "";
-        display: none !important;
+        display: none;
       }
 
       &-inner {
-        border: 0 !important;
-        border-radius: 0 !important;
-        background: transparent !important;
-        box-shadow: none !important;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
       }
 
       &:hover {
-        border-bottom-color: color-mix(in srgb, var(--noesis-tab-indicator) 30%, var(--background-modifier-border-hover)) !important;
-        background: transparent !important;
-        color: var(--noesis-tab-text-active) !important;
+        border-bottom-color: color-mix(in srgb, var(--noesis-tab-indicator) 30%, var(--background-modifier-border-hover));
+        background: transparent;
+        color: var(--noesis-tab-text-active);
 
         .workspace-tab-header-inner {
-          background: transparent !important;
+          background: transparent;
         }
       }
 
       &.is-active,
       &.mod-active,
       &[aria-selected=true] {
-        border-bottom-color: var(--noesis-tab-indicator) !important;
-        color: var(--noesis-tab-text-active) !important;
-        background: var(--noesis-tab-active-bg) !important;
+        border-bottom-color: var(--noesis-tab-indicator);
+        color: var(--noesis-tab-text-active);
+        background: var(--noesis-tab-active-bg);
 
         .workspace-tab-header-inner {
-          background: var(--noesis-tab-active-bg) !important;
-          color: inherit !important;
-          font-weight: var(--noesis-tab-active-font-weight) !important;
+          background: var(--noesis-tab-active-bg);
+          color: inherit;
+          font-weight: var(--noesis-tab-active-font-weight);
         }
       }
     }
@@ -241,41 +241,40 @@ body.noesis-tabs-underline {
 
   :is(.mod-left-split, .mod-right-split) {
     .workspace-tab-header-spacer {
-      display: none !important;
+      display: none;
     }
 
     .workspace-tab-header-container {
-      padding-inline: 0 !important;
-      border-bottom: var(--noesis-border-thin) !important;
+      padding-inline: 0;
+      border-bottom: var(--noesis-border-thin);
 
       &-inner {
-        flex-grow: 1 !important;
-        gap: 0 !important;
-        margin: 0 !important;
-        padding: 0 !important;
+        flex-grow: 1;
+        gap: 0;
+        margin: 0;
+        padding: 0;
       }
     }
 
     .workspace-tab-header {
-      flex: 0 0 42px !important;
-      width: 42px !important;
-      min-width: 42px !important;
-      max-width: 42px !important;
-      border-radius: 0 !important;
+      flex: 0 0 42px;
+      width: 42px;
+      min-width: 42px;
+      max-width: 42px;
+      border-radius: 0;
 
       &-inner {
-        justify-content: center !important;
-        min-height: var(--header-height, 40px) !important;
-        padding-inline: 8px !important;
+        justify-content: center;
+        min-height: var(--header-height, 40px);
+        padding-inline: 8px;
 
         &-title {
-          clip: rect(0 0 0 0) !important;
-          clip-path: inset(50%) !important;
-          height: 1px !important;
-          overflow: hidden !important;
-          position: absolute !important;
-          width: 1px !important;
-          white-space: nowrap !important;
+          clip: rect(0 0 0 0);
+          height: 1px;
+          overflow: hidden;
+          position: absolute;
+          width: 1px;
+          white-space: nowrap;
         }
       }
     }
@@ -283,17 +282,15 @@ body.noesis-tabs-underline {
 
   .mod-right-split {
     .workspace-tab-header-container-inner {
-      justify-content: flex-start !important;
+      justify-content: flex-start;
     }
   }
 }
 
 body.noesis-tabs-underline .workspace-tabs:not(.mod-stacked) .workspace-tab-header {
   --noesis-underline-indicator-color: transparent;
-  position: relative !important;
-  border-bottom: 0 !important;
-  -webkit-clip-path: none !important;
-  clip-path: none !important;
+  position: relative;
+  border-bottom: 0;
 }
 
 body.noesis-tabs-underline .workspace-tabs:not(.mod-stacked) .workspace-tab-header:is(:hover, :focus-visible) {
@@ -305,239 +302,239 @@ body.noesis-tabs-underline .workspace-tabs:not(.mod-stacked) .workspace-tab-head
 }
 
 body.noesis-tabs-underline .workspace .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header {
-  box-shadow: inset 0 -2px 0 var(--noesis-underline-indicator-color) !important;
+  box-shadow: inset 0 -2px 0 var(--noesis-underline-indicator-color);
 }
 
 @include presets.root-pills-tabs {
   .workspace-tab-header {
-    position: relative !important;
+    position: relative;
     flex: 1 1 136px;
-    min-width: 112px !important;
-    max-width: 220px !important;
-    height: calc(var(--noesis-tab-height) * 1px + 1px) !important;
-    padding: 0 !important;
-    color: var(--noesis-tab-text) !important;
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
+    min-width: 112px;
+    max-width: 220px;
+    height: calc(var(--noesis-tab-height) * 1px + 1px);
+    padding: 0;
+    color: var(--noesis-tab-text);
+    background: transparent;
+    border: none;
+    box-shadow: none;
 
     &::before,
     &::after {
       content: "";
-      display: none !important;
+      display: none;
     }
 
     &-inner {
-      position: relative !important;
-      display: flex !important;
-      align-items: center !important;
-      min-width: 0 !important;
-      height: calc(var(--noesis-tab-height) * 1px) !important;
-      min-height: calc(var(--noesis-tab-height) * 1px) !important;
-      gap: 6px !important;
-      padding: 0 10px !important;
-      box-sizing: border-box !important;
-      overflow: visible !important;
-      color: inherit !important;
-      transition: background-color var(--noesis-transition-fast), border-color var(--noesis-transition-fast), box-shadow var(--noesis-transition-fast), color var(--noesis-transition-fast) !important;
+      position: relative;
+      display: flex;
+      align-items: center;
+      min-width: 0;
+      height: calc(var(--noesis-tab-height) * 1px);
+      min-height: calc(var(--noesis-tab-height) * 1px);
+      gap: 6px;
+      padding: 0 10px;
+      box-sizing: border-box;
+      overflow: visible;
+      color: inherit;
+      transition: background-color var(--noesis-transition-fast), border-color var(--noesis-transition-fast), box-shadow var(--noesis-transition-fast), color var(--noesis-transition-fast);
     }
 
 
     &-inner-title {
-      display: inline-flex !important;
-      align-items: center !important;
-      min-width: 0 !important;
-      overflow: hidden !important;
-      text-overflow: ellipsis !important;
-      white-space: nowrap !important;
-      color: inherit !important;
-      line-height: var(--noesis-tab-title-line-height) !important;
+      display: inline-flex;
+      align-items: center;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: inherit;
+      line-height: var(--noesis-tab-title-line-height);
     }
 
     &[data-type=markdown] {
       .workspace-tab-header-inner-icon {
-        display: none !important;
+        display: none;
       }
 
       .workspace-tab-header-inner-title::before {
         content: "";
-        display: inline-block !important;
-        visibility: visible !important;
-        width: 14px !important;
-        min-width: 14px !important;
-        height: 14px !important;
-        flex: 0 0 14px !important;
-        margin-right: 7px !important;
-        background-color: currentColor !important;
-        opacity: 0.92 !important;
-        -webkit-mask-image: var(--noesis-icon-file-text) !important;
-        mask-image: var(--noesis-icon-file-text) !important;
-        -webkit-mask-repeat: no-repeat !important;
-        mask-repeat: no-repeat !important;
-        -webkit-mask-position: center !important;
-        mask-position: center !important;
-        -webkit-mask-size: contain !important;
-        mask-size: contain !important;
+        display: inline-block;
+        visibility: visible;
+        width: 14px;
+        min-width: 14px;
+        height: 14px;
+        flex: 0 0 14px;
+        margin-right: 7px;
+        background-color: currentColor;
+        opacity: 0.92;
+        -webkit-mask-image: var(--noesis-icon-file-text);
+        mask-image: var(--noesis-icon-file-text);
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
       }
 
       &.is-active .workspace-tab-header-inner-title::before {
-        background-color: var(--noesis-tab-indicator, var(--noesis-current-accent)) !important;
-        opacity: 1 !important;
+        background-color: var(--noesis-tab-indicator, var(--noesis-current-accent));
+        opacity: 1;
       }
     }
 
     &:not([data-type=markdown]) .workspace-tab-header-inner-icon:not(:empty) + .workspace-tab-header-inner-title::before {
       content: "";
-      display: none !important;
+      display: none;
     }
 
     &:hover {
-      color: var(--noesis-tab-text-active) !important;
+      color: var(--noesis-tab-text-active);
 
       .workspace-tab-header-inner {
-        background: var(--noesis-tab-hover-bg) !important;
-        border-color: var(--noesis-tab-active-border) !important;
+        background: var(--noesis-tab-hover-bg);
+        border-color: var(--noesis-tab-active-border);
       }
     }
 
     &.is-active {
-      z-index: 80 !important;
-      color: var(--noesis-tab-text-active) !important;
+      z-index: 80;
+      color: var(--noesis-tab-text-active);
 
       &::after {
         content: "";
-        display: none !important;
+        display: none;
       }
 
       .workspace-tab-header-inner {
-        font-weight: var(--noesis-tab-active-font-weight) !important;
+        font-weight: var(--noesis-tab-active-font-weight);
       }
     }
   }
 }
 
 body.noesis-tab-active-accent .workspace-tabs:not(.mod-stacked) .workspace-tab-header:is(.is-active, .mod-active, [aria-selected=true]) {
-  color: var(--noesis-tab-indicator) !important;
+  color: var(--noesis-tab-indicator);
 
   :is(.workspace-tab-header-inner, .workspace-tab-header-inner-title) {
-    color: inherit !important;
+    color: inherit;
   }
 
   :is(.workspace-tab-header-inner-icon, .workspace-tab-header-status-icon) {
-    --icon-color: var(--noesis-tab-indicator) !important;
-    color: var(--noesis-tab-indicator) !important;
+    --icon-color: var(--noesis-tab-indicator);
+    color: var(--noesis-tab-indicator);
 
     :is(svg, .svg-icon) {
-      color: currentColor !important;
-      stroke: currentColor !important;
+      color: currentColor;
+      stroke: currentColor;
     }
   }
 }
 
 body:not(.noesis-tab-active-accent) .workspace-tabs:not(.mod-stacked) .workspace-tab-header[data-type=markdown]:is(.is-active, .mod-active, [aria-selected=true]) .workspace-tab-header-inner-title::before {
-  background-color: currentColor !important;
+  background-color: currentColor;
 }
 
 body.noesis-tab-active-accent .workspace .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header:is(.is-active, .mod-active, [aria-selected=true]) .workspace-tab-header-inner-title {
-  color: var(--noesis-tab-indicator) !important;
+  color: var(--noesis-tab-indicator);
 }
 
 body.noesis-tab-active-accent .workspace .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header:is(.is-active, .mod-active, [aria-selected=true]) .workspace-tab-header-inner-icon {
-  --icon-color: var(--noesis-tab-indicator) !important;
-  color: var(--noesis-tab-indicator) !important;
+  --icon-color: var(--noesis-tab-indicator);
+  color: var(--noesis-tab-indicator);
 }
 
 body.noesis-tab-active-accent .workspace .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header:is(.is-active, .mod-active, [aria-selected=true]) .workspace-tab-header-inner-close-button {
-  --icon-color: var(--noesis-tab-indicator) !important;
-  color: var(--noesis-tab-indicator) !important;
+  --icon-color: var(--noesis-tab-indicator);
+  color: var(--noesis-tab-indicator);
 
   :is(svg, .svg-icon) {
-    color: currentColor !important;
-    stroke: currentColor !important;
+    color: currentColor;
+    stroke: currentColor;
   }
 }
 
 
 body.noesis-tabs-underline .workspace-tabs:not(.mod-stacked) .workspace-tab-header[data-type=markdown] {
   .workspace-tab-header-inner-icon {
-    display: flex !important;
-    color: inherit !important;
+    display: flex;
+    color: inherit;
   }
 
   .workspace-tab-header-inner-title::before {
-    content: none !important;
-    display: none !important;
+    content: none;
+    display: none;
   }
 }
 
 body .workspace-tab-header :is(.workspace-tab-header-status-icon.mod-pinned, .workspace-tab-header-inner-icon.mod-pinned, .workspace-tab-header-status-icon[aria-label*=pin i], .workspace-tab-header-inner-icon[aria-label*=pin i]) {
   --icon-color: var(--noesis-tab-indicator, var(--noesis-current-accent));
-  color: var(--noesis-tab-indicator, var(--noesis-current-accent)) !important;
+  color: var(--noesis-tab-indicator, var(--noesis-current-accent));
 
   :is(svg, .svg-icon) {
-    color: currentColor !important;
-    stroke: currentColor !important;
+    color: currentColor;
+    stroke: currentColor;
   }
 }
 
 @include presets.root-tab-style(pills) {
   .workspace-tab-header {
-    min-width: 96px !important;
+    min-width: 96px;
 
     &-inner {
-      border: 1px solid var(--noesis-tab-strip-border) !important;
-      border-radius: var(--radius-m) !important;
-      background: transparent !important;
-      box-shadow: none !important;
+      border: 1px solid var(--noesis-tab-strip-border);
+      border-radius: var(--radius-m);
+      background: transparent;
+      box-shadow: none;
 
       &::before,
       &::after {
         content: "";
-        display: none !important;
+        display: none;
       }
     }
 
     &:hover .workspace-tab-header-inner {
-      border-color: color-mix(in srgb, var(--noesis-tab-indicator) 42%, var(--background-modifier-border)) !important;
-      background: color-mix(in srgb, var(--noesis-tab-indicator) 8%, var(--background-primary)) !important;
+      border-color: color-mix(in srgb, var(--noesis-tab-indicator) 42%, var(--background-modifier-border));
+      background: color-mix(in srgb, var(--noesis-tab-indicator) 8%, var(--background-primary));
     }
 
     &.is-active .workspace-tab-header-inner {
-      border-color: color-mix(in srgb, var(--noesis-tab-indicator) 64%, var(--background-modifier-border)) !important;
-      background: var(--noesis-tab-active-bg) !important;
-      box-shadow: none !important;
+      border-color: color-mix(in srgb, var(--noesis-tab-indicator) 64%, var(--background-modifier-border));
+      background: var(--noesis-tab-active-bg);
+      box-shadow: none;
     }
   }
 }
 
 @include presets.root-pills-tabs {
   .workspace-tab-header-new-tab {
-    align-self: flex-start !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 30px !important;
-    height: 30px !important;
-    margin: 0 0 0 10px !important;
-    padding: 0 !important;
-    box-sizing: border-box !important;
-    line-height: 1 !important;
-    transform: translateY(var(--noesis-new-tab-y)) !important;
-    border: 1px solid var(--noesis-tab-strip-border) !important;
-    border-radius: var(--radius-m) !important;
-    background: var(--noesis-tab-inactive-bg) !important;
-    color: var(--noesis-tab-text) !important;
-    transition: background-color var(--noesis-transition-fast), border-color var(--noesis-transition-fast), color var(--noesis-transition-fast), box-shadow var(--noesis-transition-fast) !important;
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin: 0 0 0 10px;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1;
+    transform: translateY(var(--noesis-new-tab-y));
+    border: 1px solid var(--noesis-tab-strip-border);
+    border-radius: var(--radius-m);
+    background: var(--noesis-tab-inactive-bg);
+    color: var(--noesis-tab-text);
+    transition: background-color var(--noesis-transition-fast), border-color var(--noesis-transition-fast), color var(--noesis-transition-fast), box-shadow var(--noesis-transition-fast);
 
     > svg {
-      display: block !important;
-      flex: 0 0 auto !important;
+      display: block;
+      flex: 0 0 auto;
     }
 
     &:hover {
-      border-color: var(--noesis-tab-active-border) !important;
-      background: var(--noesis-tab-hover-bg) !important;
-      color: var(--noesis-tab-text-active) !important;
+      border-color: var(--noesis-tab-active-border);
+      background: var(--noesis-tab-hover-bg);
+      color: var(--noesis-tab-text-active);
     }
   }
 }
@@ -545,31 +542,31 @@ body .workspace-tab-header :is(.workspace-tab-header-status-icon.mod-pinned, .wo
 /* Main-tab selection always shares the document surface; accents remain indicators, not fills. */
 body .workspace .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header:is(.is-active, .mod-active, [aria-selected=true]),
 body .workspace .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header:is(.is-active, .mod-active, [aria-selected=true]) .workspace-tab-header-inner {
-  background: var(--noesis-tab-active-bg) !important;
+  background: var(--noesis-tab-active-bg);
 }
 
 /* Underline root tabs own the full strip height; only their contents retain native sizing. */
 body.noesis-tabs-underline .workspace .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header-container-inner {
-  height: 100% !important;
-  min-height: 100% !important;
-  margin-block: 0 !important;
-  padding-block: 0 !important;
-  align-items: stretch !important;
+  height: 100%;
+  min-height: 100%;
+  margin-block: 0;
+  padding-block: 0;
+  align-items: stretch;
 }
 
 body.noesis-tabs-underline .workspace .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header {
-  height: 100% !important;
-  min-height: 100% !important;
-  margin-block: 0 !important;
-  align-self: stretch !important;
-  box-sizing: border-box !important;
+  height: 100%;
+  min-height: 100%;
+  margin-block: 0;
+  align-self: stretch;
+  box-sizing: border-box;
 }
 
 body.noesis-tabs-underline .workspace .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header-inner {
-  height: 100% !important;
-  min-height: 0 !important;
-  align-items: center !important;
-  background: transparent !important;
+  height: 100%;
+  min-height: 0;
+  align-items: center;
+  background: transparent;
 }
 /* Stacked tabs */
 body .workspace-tabs.mod-stacked {
@@ -630,20 +627,20 @@ body .workspace-tabs.mod-stacked .workspace-tab-header:is(.is-active, .mod-activ
 }
 
 body.noesis-stacked-tab-active-accent .workspace-tabs.mod-stacked .workspace-tab-header:is(.is-active, .mod-active, [aria-selected=true]) {
-  color: var(--noesis-tab-indicator) !important;
+  color: var(--noesis-tab-indicator);
 
   :is(.workspace-tab-header-inner, .workspace-tab-header-inner-title, .workspace-tab-header-inner-icon, .workspace-tab-header-status-icon, .workspace-tab-header-inner-close-button) {
-    color: var(--noesis-tab-indicator) !important;
+    color: var(--noesis-tab-indicator);
   }
 
   :is(.workspace-tab-header-inner-icon, .workspace-tab-header-status-icon, .workspace-tab-header-inner-close-button) {
-    --icon-color: var(--noesis-tab-indicator) !important;
-    --icon-color-active: var(--noesis-tab-indicator) !important;
-    --icon-color-focused: var(--noesis-tab-indicator) !important;
+    --icon-color: var(--noesis-tab-indicator);
+    --icon-color-active: var(--noesis-tab-indicator);
+    --icon-color-focused: var(--noesis-tab-indicator);
 
     :is(svg, .svg-icon) {
-      color: currentColor !important;
-      stroke: currentColor !important;
+      color: currentColor;
+      stroke: currentColor;
     }
   }
 }
@@ -705,7 +702,7 @@ body.noesis-tabs-pills:not(.noesis-tabs-obsidian) .workspace-ribbon :is(.side-do
 }
 
 body.noesis-tabs-underline:not(.noesis-tabs-obsidian) .workspace-ribbon {
-  overflow: clip !important;
+  overflow: clip;
 }
 
 body.noesis-tabs-underline:not(.noesis-tabs-obsidian) .workspace-ribbon :is(.side-dock-actions, .side-dock-settings) :is(.side-dock-ribbon-action, .clickable-icon) {
@@ -718,11 +715,11 @@ body.noesis-tabs-underline:not(.noesis-tabs-obsidian) .workspace-ribbon :is(.sid
 body.noesis-tabs-underline:not(.noesis-tabs-obsidian) .workspace-ribbon :is(.side-dock-actions, .side-dock-settings) :is(.side-dock-ribbon-action, .clickable-icon):is(:hover, :focus-visible, .is-active, .mod-active, [aria-pressed=true], [aria-selected=true]) {
   background: var(--noesis-line-tabs-ribbon-active-bg);
   border-left-color: var(--noesis-tab-indicator);
-  box-shadow: 0 calc(-1 * var(--noesis-line-tabs-ribbon-surface-bleed)) 0 var(--noesis-line-tabs-ribbon-active-bg) !important;
+  box-shadow: 0 calc(-1 * var(--noesis-line-tabs-ribbon-surface-bleed)) 0 var(--noesis-line-tabs-ribbon-active-bg);
 }
 
 body .workspace :is(.workspace-tab-header, .workspace-ribbon) :is(svg, .svg-icon) {
-  stroke-width: var(--icon-stroke, 2) !important;
+  stroke-width: var(--icon-stroke, 2);
 }
 
 body .workspace-leaf-resize-handle {
@@ -731,12 +728,12 @@ body .workspace-leaf-resize-handle {
 }
 
 body .workspace-leaf-resize-handle:is(:hover, :active) {
-  background-color: var(--noesis-divider-accent) !important;
-  border-color: var(--noesis-divider-accent) !important;
+  background-color: var(--noesis-divider-accent);
+  border-color: var(--noesis-divider-accent);
 }
 
 .workspace-tab-header:focus-visible,
 .workspace-tab-header-new-tab:focus-visible {
-  outline: 2px solid var(--noesis-accent-focus) !important;
-  outline-offset: -2px !important;
+  outline: 2px solid var(--noesis-accent-focus);
+  outline-offset: -2px;
 }

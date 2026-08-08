@@ -122,7 +122,7 @@ body.noesis-callouts-on.noesis-callouts-outline .cm-embed-block.cm-callout {
   body.noesis-callouts-on.noesis-callout-headers-hidden .callout {
     display: grid;
     grid-template-columns: var(--noesis-callout-icon-size) minmax(0, 1fr);
-    column-gap: var(--noesis-callout-title-gap);
+    gap: 0 var(--noesis-callout-title-gap);
     align-items: start;
   }
 
@@ -152,7 +152,6 @@ body.noesis-callouts-on.noesis-callouts-outline .cm-embed-block.cm-callout {
     margin: -1px;
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
-    clip-path: inset(50%);
     white-space: nowrap;
   }
 
@@ -190,15 +189,15 @@ body.theme-light:not(.noesis-dialogs-overlays-native) {
 }
 
 body:not(.noesis-dialogs-overlays-native) input:not([type=checkbox], [type=radio], [type=range]) {
-  border: 1px solid var(--noesis-control-border) !important;
-  background: linear-gradient(180deg, var(--noesis-control-bg-top), var(--noesis-control-bg)) !important;
-  color: var(--text-normal) !important;
-  box-shadow: none !important;
+  border: 1px solid var(--noesis-control-border);
+  background: linear-gradient(180deg, var(--noesis-control-bg-top), var(--noesis-control-bg));
+  color: var(--text-normal);
+  box-shadow: none;
 }
 
 body:not(.noesis-dialogs-overlays-native) input:not([type=checkbox], [type=radio], [type=range]):is(:focus, :focus-visible, :focus-within) {
-  border-color: var(--noesis-control-border-focus) !important;
-  box-shadow: none !important;
+  border-color: var(--noesis-control-border-focus);
+  box-shadow: none;
 }
 
 body:not(.noesis-dialogs-overlays-native) input:not([type=checkbox], [type=radio], [type=range]):focus-visible {
@@ -207,34 +206,34 @@ body:not(.noesis-dialogs-overlays-native) input:not([type=checkbox], [type=radio
 }
 
 body:not(.noesis-dialogs-overlays-native) .prompt-input-container {
-  border: 1px solid var(--noesis-prompt-border) !important;
-  background: linear-gradient(180deg, color-mix(in srgb, var(--noesis-control-bg-top) 86%, var(--noesis-current-accent) 4%), var(--noesis-control-bg)) !important;
-  box-shadow: none !important;
+  border: 1px solid var(--noesis-prompt-border);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--noesis-control-bg-top) 86%, var(--noesis-current-accent) 4%), var(--noesis-control-bg));
+  box-shadow: none;
 }
 
 body:not(.noesis-dialogs-overlays-native) .prompt-input-container:focus-within {
-  border-color: var(--noesis-prompt-border-focus) !important;
-  box-shadow: none !important;
+  border-color: var(--noesis-prompt-border-focus);
+  box-shadow: none;
 }
 
 body:not(.noesis-dialogs-overlays-native) .prompt-input {
-  border: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 body:not(.noesis-dialogs-overlays-native) .prompt-input::placeholder {
-  color: color-mix(in srgb, var(--text-muted) 84%, var(--text-faint)) !important;
+  color: color-mix(in srgb, var(--text-muted) 84%, var(--text-faint));
 }
 
 body:not(.noesis-dialogs-overlays-native) .prompt-input-container :is(.search-input-clear-button, .clickable-icon) {
-  color: var(--text-muted) !important;
-  background: transparent !important;
+  color: var(--text-muted);
+  background: transparent;
 }
 
 body:not(.noesis-dialogs-overlays-native) .prompt-input-container :is(.search-input-clear-button, .clickable-icon):is(:hover, :focus-visible) {
-  color: var(--text-normal) !important;
-  background: color-mix(in srgb, var(--text-muted) 14%, transparent) !important;
+  color: var(--text-normal);
+  background: color-mix(in srgb, var(--text-muted) 14%, transparent);
 }
 
 body:not(.noesis-dialogs-overlays-native) .tooltip {
@@ -270,10 +269,10 @@ body:not(.noesis-dialogs-overlays-native) .tooltip.mod-bottom .tooltip-arrow {
 }
 
 body.noesis-dialogs-overlays-solid .modal-bg {
-  opacity: 1 !important;
-  background: var(--noesis-modal-backdrop-solid-bg, var(--background-primary)) !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
+  opacity: 1;
+  background: var(--noesis-modal-backdrop-solid-bg, var(--background-primary));
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 body.theme-dark.noesis-dialogs-overlays-solid {
@@ -291,5 +290,5 @@ body.noesis-callouts-on .callout.is-collapsible .callout-title:focus-visible {
 }
 
 body.noesis-dialogs-overlays-solid :is(.modal, .prompt) {
-  border-color: color-mix(in srgb, var(--noesis-current-accent) 18%, var(--background-modifier-border)) !important;
+  border-color: color-mix(in srgb, var(--noesis-current-accent) 18%, var(--background-modifier-border));
 }

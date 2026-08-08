@@ -39,10 +39,11 @@ body.noesis-reading-custom {
 }
 
 body.noesis-reading-academic .markdown-rendered p {
-  text-indent: 1.5em;
   margin-block: 0;
 }
 
-body.noesis-reading-academic .markdown-rendered p:first-of-type {
-  text-indent: 0;
+body.noesis-reading-academic .markdown-rendered p + p::before {
+  content: "";
+  display: inline-block;
+  width: 1.5em;
 }
