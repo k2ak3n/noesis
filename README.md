@@ -131,15 +131,3 @@ After the release completes, submit this repository through **Themes → New the
 ## License
 
 noesis is licensed under the [MIT License](LICENSE).
-
-## Changelog
-
-### 1.0.0
-
-- First stable release of the complete noesis theme, including the HTB visual preset and technical callouts.
-- Added Comfortable/Compact density control, print/PDF styling, and the visual QA matrix.
-- Made advanced tab/sidebar treatments opt-in.
-- Refined callout spacing, icon alignment, and Underline styling for ribbon and side-pane tabs.
-- Added the Stacked Tabs active-text-and-icon accent toggle.
-- Added static accessibility and selector-complexity audits.
-- Added release-asset and complete Style Settings selector contracts, plus pull-request and main-branch quality checks.

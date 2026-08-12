@@ -61,7 +61,7 @@ const requiredSurfaceHierarchyTokens = [
   '--noesis-tab-active-bg: var(--background-primary);',
   '--noesis-tab-strip-bg-base: var(--background-secondary);',
   '--titlebar-background: var(--background-secondary);',
-  '--background-secondary: #f5f5f7;',
+  '--background-secondary: #f9f9f9;',
   'body .workspace .mod-root :is(.workspace-leaf-content, .view-content) {',
   'body .workspace .mod-root .workspace-tabs:not(.mod-stacked) {',
   'background: var(--noesis-tab-active-bg);',
