@@ -1,0 +1,50 @@
+name: Release theme
+
+on:
+  push:
+    tags:
+      - '*.*.*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build and publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the release tag
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify release metadata
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          node -e 'const fs = require("node:fs"); const tag = process.env.RELEASE_TAG; const packageVersion = JSON.parse(fs.readFileSync("package.json", "utf8")).version; const manifestVersion = JSON.parse(fs.readFileSync("manifest.json", "utf8")).version; if (packageVersion !== tag || manifestVersion !== tag) throw new Error(`Release metadata mismatch for tag ${tag}: package=${packageVersion}, manifest=${manifestVersion}.`);'
+
+      - name: Verify and build
+        run: |
+          npm test
+          test -f dist/noesis/manifest.json
+          test -f dist/noesis/theme.css
+          node -e 'const fs = require("node:fs"); const tag = process.env.GITHUB_REF_NAME; const manifestVersion = JSON.parse(fs.readFileSync("dist/noesis/manifest.json", "utf8")).version; if (manifestVersion !== tag) throw new Error(`Generated manifest version mismatch: expected ${tag}, got ${manifestVersion}.`);'
+
+      - name: Create or update GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            gh release upload "$GITHUB_REF_NAME" dist/noesis/manifest.json dist/noesis/theme.css --clobber
+          else
+            gh release create "$GITHUB_REF_NAME" dist/noesis/manifest.json dist/noesis/theme.css --title "$GITHUB_REF_NAME" --generate-notes
+          fi
