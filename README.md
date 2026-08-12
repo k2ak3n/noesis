@@ -113,21 +113,6 @@ npm test
 
 `npm test` verifies the generated artifact, all Style Settings selectors, contrast smoke checks, selector complexity, and the release theme card. Use [visual-qa.md](visual-qa.md) before a release.
 
-## Publishing
-
-Keep a `screenshot.png` theme card in the repository root. It must be a 512 × 288 PNG; the release checks validate its format and dimensions. This repository uses an original UI-inspired noesis theme card for the community-directory thumbnail.
-
-Commit the release, then create and push a semantic-version tag matching both `manifest.json` and `package.json`—for this release, `1.0.0`:
-
-```text
-git tag 1.0.0
-git push origin 1.0.0
-```
-
-The **Quality checks** workflow verifies pull requests and pushes to `main`. The **Release theme** workflow validates the tag, build, license, and root screenshot; it then creates a GitHub Release containing `manifest.json` and `theme.css`.
-
-After the release completes, submit this repository through **Themes → New theme** at [Obsidian Community](https://community.obsidian.md). The directory checks the default-branch manifest and installs the GitHub Release whose tag matches its version.
-
 ## License
 
 noesis is licensed under the [MIT License](LICENSE).
